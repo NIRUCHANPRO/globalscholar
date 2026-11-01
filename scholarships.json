@@ -1,0 +1,159 @@
+{
+  "last_updated": "2026-11-01 08:19 UTC",
+  "scholarships": [
+    {
+      "id": "eth-zurich-excellence-swiss-government-scholarship",
+      "title": "ETH Zurich Excellence & Swiss Government Scholarship",
+      "university": "ETH Zurich & Swiss Federal Universities",
+      "logoTitle": "Switzerland Scholar",
+      "logoIcon": "fa-building-columns",
+      "logoColor": "text-indigo-700",
+      "country": "Switzerland",
+      "flag": "🇨🇭",
+      "badge": "Fully Funded",
+      "badgeColor": "bg-[#10b981]",
+      "fundingType": "Fully Funded",
+      "deadline": "December 15, 2026",
+      "bestDate": "Submit by November 20, 2026",
+      "levels": [
+        "Master's Degree",
+        "PhD / Research"
+      ],
+      "forLabel": "Master's / PhD",
+      "fields": [
+        "ALL",
+        "Computer Science",
+        "Engineering",
+        "Science",
+        "Business"
+      ],
+      "benefitsShort": "Full Tuition + Monthly Stipend + Travel",
+      "benefitsFull": "Covers full tuition fee waiver, a living and study stipend of CHF 12,000 per semester (ESOP) or monthly stipend of CHF 1,920 (Swiss Govt Excellence Scholarship), health insurance coverage, mentorship, and round-trip airfare.",
+      "image": "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80",
+      "eligibility": [
+        "Outstanding academic performance in Bachelor's degree (top 10% of graduating class / CGPA above 8.5/10)",
+        "Direct admission offer or application submitted for an ETH Zurich Master's program",
+        "English language proficiency (IELTS 7.5+ or TOEFL iBT 100+)",
+        "Strong research interest demonstrated through a high-quality pre-proposal for the Master's thesis"
+      ],
+      "docs": [
+        "Official Academic Transcripts and Class Rank Certificate",
+        "Pre-proposal for Master's Thesis (1-2 pages)",
+        "Curriculum Vitae (CV) in Europass format",
+        "Two Letters of Recommendation from senior professors",
+        "Passport Copy and Proof of English Proficiency"
+      ],
+      "steps": [
+        "Check Master's program eligibility and prepare your preliminary research proposal.",
+        "Complete the online ETH Zurich Master's admission application portal.",
+        "Opt-in for the Excellence Scholarship & Opportunity Programme (ESOP) during application.",
+        "Upload required documents and submit the application before December 15 deadline."
+      ],
+      "tip": "Indian students must provide an official Rank Certificate proving top 5-10% standing in their university. Align your thesis pre-proposal directly with the ongoing research of an active ETH Zurich institute or professor.",
+      "link": "https://ethz.ch/students/en/studies/financial/scholarships/esop.html"
+    },
+    {
+      "id": "singa-asean-ntu-science-engineering-scholarship",
+      "title": "SINGA & ASEAN/NTU Science & Engineering Scholarship",
+      "university": "Nanyang Technological University & A*STAR Partner Universities",
+      "logoTitle": "Singapore Scholar",
+      "logoIcon": "fa-building-columns",
+      "logoColor": "text-indigo-700",
+      "country": "Singapore",
+      "flag": "🇸🇬",
+      "badge": "Fully Funded",
+      "badgeColor": "bg-[#10b981]",
+      "fundingType": "Fully Funded",
+      "deadline": "December 1, 2026",
+      "bestDate": "November 10, 2026",
+      "levels": [
+        "Undergraduate",
+        "PhD / Research"
+      ],
+      "forLabel": "Class 12 UG / PhD",
+      "fields": [
+        "Computer Science",
+        "Engineering",
+        "Science"
+      ],
+      "benefitsShort": "Full Tuition + Monthly Stipend + Travel",
+      "benefitsFull": "100% tuition fee waiver, monthly living stipend up to SGD 3,200 for PhD (SINGA) or annual living allowance for UG (ASEAN/NTU), one-time airfare grant up to SGD 1,500, and a settling-in allowance of SGD 1,000.",
+      "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+      "eligibility": [
+        "Open to international students with excellent academic records in Class 12 (for UG) or a Bachelor's/Master's degree (for PhD)",
+        "Strong passion for research in Science, Engineering, or Computing",
+        "Proficiency in written and spoken English"
+      ],
+      "docs": [
+        "Valid Passport",
+        "Official Academic Transcripts and Certificates",
+        "Statement of Purpose / Research Proposal",
+        "Two Academic Recommendation Letters",
+        "Proof of English Proficiency (IELTS/TOEFL if requested)"
+      ],
+      "steps": [
+        "Choose your desired research discipline or undergraduate degree program at NTU / A*STAR",
+        "Prepare academic transcripts, research proposal, and referee details",
+        "Submit your online application through the official SINGA or NTU admissions portal",
+        "Attend the online academic interview if shortlisted"
+      ],
+      "tip": "For SINGA PhD applicants, reaching out to prospective supervisors at NTU or A*STAR labs beforehand to align your research interests drastically boosts selection chances.",
+      "link": "https://www.a-star.edu.sg/singa"
+    },
+    {
+      "id": "australia-awards-melbourne-international-undergraduate-scholarship",
+      "title": "Australia Awards & Melbourne International Undergraduate Scholarship",
+      "university": "University of Melbourne & Australian Partner Universities",
+      "logoTitle": "Australia Scholar",
+      "logoIcon": "fa-building-columns",
+      "logoColor": "text-indigo-700",
+      "country": "Australia",
+      "flag": "🇦🇺",
+      "badge": "Fully Funded",
+      "badgeColor": "bg-[#10b981]",
+      "fundingType": "Fully Funded",
+      "deadline": "April 30, 2026",
+      "bestDate": "Submit by April 10, 2026",
+      "levels": [
+        "Class 12 / High School",
+        "Undergraduate",
+        "Master's Degree",
+        "PhD / Research"
+      ],
+      "forLabel": "Class 12 UG / Master's / PhD",
+      "fields": [
+        "ALL",
+        "Computer Science",
+        "Engineering",
+        "Science",
+        "Medicine",
+        "Business"
+      ],
+      "benefitsShort": "Full Tuition + Monthly Stipend + Travel",
+      "benefitsFull": "100% full tuition fee remission, establishment allowance, fortnightly living stipend, Overseas Student Health Cover (OSHC), and round-trip economy airfare.",
+      "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+      "eligibility": [
+        "Must be a citizen of an eligible partner country, including India.",
+        "Must hold an outstanding academic record (Class 12 standard cutoff 90%+ or high GPA for PG).",
+        "Must meet English language proficiency requirements (IELTS 6.5–7.0 overall).",
+        "Must fulfill Australian Student Visa (Subclass 500) criteria."
+      ],
+      "docs": [
+        "Official Academic Transcripts & High School / Degree Marksheets",
+        "Valid Passport Copy",
+        "Proof of English Language Proficiency (IELTS/TOEFL)",
+        "Statement of Purpose (SOP)",
+        "Two Academic or Professional Letters of Recommendation"
+      ],
+      "steps": [
+        "Check course eligibility on the University of Melbourne or DFAT portal.",
+        "Apply for admission to an eligible undergraduate or postgraduate program.",
+        "Submit your scholarship application via the online OASIS or university portal.",
+        "Upload required academic transcripts, identity proof, and personal statements.",
+        "Attend the selection interview if shortlisted for Australia Awards."
+      ],
+      "tip": "For Australia Awards, clearly demonstrate how your chosen course will contribute to your home country's development goals, as development impact carries major weight in selection.",
+      "link": "https://www.dfat.gov.au/people-to-people/australia-awards"
+    }
+  ]
+}
