@@ -1,0 +1,31 @@
+name: Auto Scholarship Scraper
+on:
+  schedule:
+    - cron: '0 0 * * *' # Roz raat 1 baje run hoga
+  workflow_dispatch:
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Run Scraper Script
+        run: python scraper.py
+
+      - name: Commit & Push Updated Scholarships
+        run: |
+          git config --global user.name "Scholarship Bot"
+          git config --global user.email "bot@users.noreply.github.com"
+          git add scholarships.json
+          git commit -m "🤖 Auto-updated foreign scholarships database" || exit 0
+          git push
