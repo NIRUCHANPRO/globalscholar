@@ -1,31 +1,37 @@
-name: Auto Scholarship Scraper
+name: 24/7 AI Foreign Scholarship Hunter
+
 on:
   schedule:
-    - cron: '0 0 * * *' # Roz raat 1 baje run hoga
-  workflow_dispatch:
+    - cron: "0 */12 * * *" # Har 12 ghante mein naye scholarships khojega
+  workflow_dispatch:       # Manual 1-click button bhi rahega
+
+permissions:
+  contents: write
 
 jobs:
-  run-scraper:
+  hunt-scholarships:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.11"
 
-      - name: Install Dependencies
-        run: pip install requests beautifulsoup4
+      - name: Install Requests
+        run: pip install requests
 
-      - name: Run Scraper Script
-        run: python scraper.py
+      - name: Run AI Scholarship Hunter Bot
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scholarship_ai_hunter.py
 
-      - name: Commit & Push Updated Scholarships
+      - name: Auto-Commit Updated Scholarships JSON
         run: |
-          git config --global user.name "Scholarship Bot"
-          git config --global user.email "bot@users.noreply.github.com"
+          git config user.name "GlobalScholar AI Bot"
+          git config user.email "bot@globalscholar.ai"
           git add scholarships.json
-          git commit -m "🤖 Auto-updated foreign scholarships database" || exit 0
+          git diff --staged --quiet || git commit -m "🤖 AI Hunter added new verified foreign scholarships"
           git push
