@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-01 08:19 UTC",
+  "last_updated": "2026-11-01 17:36 UTC",
   "scholarships": [
     {
       "id": "eth-zurich-excellence-swiss-government-scholarship",
@@ -154,6 +154,161 @@
       ],
       "tip": "For Australia Awards, clearly demonstrate how your chosen course will contribute to your home country's development goals, as development impact carries major weight in selection.",
       "link": "https://www.dfat.gov.au/people-to-people/australia-awards"
+    },
+    {
+      "id": "invest-your-talent-in-italy-dsu-regional-need-based-scholarship",
+      "title": "Invest Your Talent in Italy & DSU Regional Need-Based Scholarship",
+      "university": "Top Partner Universities in Italy",
+      "logoTitle": "Italy Scholar",
+      "logoIcon": "fa-building-columns",
+      "logoColor": "text-indigo-700",
+      "country": "Italy",
+      "flag": "🇮🇹",
+      "badge": "Fully Funded",
+      "badgeColor": "bg-[#10b981]",
+      "fundingType": "Fully Funded",
+      "deadline": "March 3, 2026 (IYT) / September 30, 2026 (DSU)",
+      "bestDate": "Submit IYT by mid-February 2026 & DSU documents by July 2026",
+      "levels": [
+        "Undergraduate",
+        "Master's Degree"
+      ],
+      "forLabel": "UG / Master's",
+      "fields": [
+        "Engineering",
+        "Computer Science",
+        "Business",
+        "Architecture",
+        "Design",
+        "Science"
+      ],
+      "benefitsShort": "Full Tuition + Up to €8,158/yr Stipend + Internship",
+      "benefitsFull": "100% tuition fee waiver, monthly grant of €1,000 (IYT) or up to €8,158 per year (DSU), free/discounted university accommodation, cafeteria meal vouchers, Italian language courses, and a guaranteed 3-month corporate internship.",
+      "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+      "eligibility": [
+        "Open to international students including Indian citizens born on or after July 1, 1998 (for IYT)",
+        "For DSU: Low family income status with ISEE Parificato below €25,000 per year",
+        "Undergraduate or Bachelor's degree relevant to Engineering, IT, Management, Architecture, or Economics",
+        "Proof of English proficiency (Minimum IELTS 6.0, TOEFL 79, or University MOI Certificate)"
+      ],
+      "docs": [
+        "Valid Passport copy",
+        "Academic Transcripts and Degree Certificates with Apostille/Legalization",
+        "ISEE Parificato (Family Income & Asset certification issued by an Italian CAF)",
+        "Updated CV in Europass format & Statement of Purpose",
+        "English Proficiency Certificate (IELTS/TOEFL/MOI)"
+      ],
+      "steps": [
+        "Apply for admission to an eligible degree program at a partner Italian university.",
+        "Submit the Invest Your Talent in Italy application via the official Esteri portal.",
+        "Prepare income & property documents in India, translate them into Italian, and get apostilled by MEA.",
+        "Apply for the DSU Regional Scholarship on the respective Italian region's portal (e.g., EDISU, DSU Toscana, ER.GO)."
+      ],
+      "tip": "For Indian applicants, getting your family income documents translated to Italian and apostilled takes time. Prepare your ISEE Parificato documents early with a certified Italian CAF to guarantee your DSU stipend and free hostel.",
+      "link": "https://investyourtalentitaly.esteri.it/"
+    },
+    {
+      "id": "eiffel-excellence-scholarship-emile-boutmy-scholarship",
+      "title": "Eiffel Excellence Scholarship & Emile-Boutmy Scholarship",
+      "university": "Top Partner Universities in France",
+      "logoTitle": "France Scholar",
+      "logoIcon": "fa-building-columns",
+      "logoColor": "text-indigo-700",
+      "country": "France",
+      "flag": "🇫🇷",
+      "badge": "Fully Funded",
+      "badgeColor": "bg-[#10b981]",
+      "fundingType": "Fully Funded",
+      "deadline": "January 10, 2027",
+      "bestDate": "December 15, 2026",
+      "levels": [
+        "Class 12 / High School",
+        "Undergraduate",
+        "Master's Degree",
+        "PhD / Research"
+      ],
+      "forLabel": "Master's / PhD / Undergraduate",
+      "fields": [
+        "ALL",
+        "Computer Science",
+        "Engineering",
+        "Science",
+        "Medicine",
+        "Business",
+        "Political Sciences"
+      ],
+      "benefitsShort": "Full Tuition + Monthly Stipend + Travel",
+      "benefitsFull": "Comprehensive financial support including full or partial tuition fee waivers, a monthly living allowance (up to €1,181 for Master's and €1,700 for PhD), international return airfares, health insurance, and cultural activities.",
+      "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+      "eligibility": [
+        "Must be a non-French citizen",
+        "Age limit: under 25 for Master's applicants and under 30 for PhD applicants (for Eiffel)",
+        "Admitted to a partner French university or institution",
+        "Academic excellence with a high GPA or top rank in previous degrees"
+      ],
+      "docs": [
+        "Curriculum Vitae (CV)",
+        "Statement of Purpose / Motivation Letter",
+        "Academic Transcripts and Degree Certificates",
+        "Proof of Language Proficiency (English or French)",
+        "Recommendation Letters"
+      ],
+      "steps": [
+        "Choose a participating French university and apply for your desired degree program",
+        "Contact the university's international relations office to express interest in the scholarship",
+        "Submit your scholarship application documents directly through the university before their internal deadline",
+        "Wait for the university to nominate your application to Campus France or the scholarship panel"
+      ],
+      "tip": "Start communicating with your target French university months in advance. Since these scholarships require institutional nomination, securing the support of the university's admissions department is the most critical step for selection.",
+      "link": "https://www.campusfrance.org/en/eiffel-scholarship-program"
+    },
+    {
+      "id": "government-of-ireland-international-education-scholarship-goi-ies",
+      "title": "Government of Ireland International Education Scholarship (GOI-IES)",
+      "university": "Eligible Higher Education Institutions in Ireland",
+      "logoTitle": "Ireland Scholar",
+      "logoIcon": "fa-building-columns",
+      "logoColor": "text-indigo-700",
+      "country": "Ireland",
+      "flag": "🇮🇪",
+      "badge": "Fully Funded",
+      "badgeColor": "bg-[#10b981]",
+      "fundingType": "Fully Funded",
+      "deadline": "March 13, 2026",
+      "bestDate": "Mid-February 2026",
+      "levels": [
+        "Master's Degree",
+        "PhD / Research"
+      ],
+      "forLabel": "Master's / PhD",
+      "fields": [
+        "ALL"
+      ],
+      "benefitsShort": "Full Tuition Waiver + €10,000 Stipend",
+      "benefitsFull": "Covers full tuition and registration fee waiver at the host Irish higher education institution, plus a €10,000 living stipend for one year of master's or PhD study.",
+      "image": "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?auto=format&fit=crop&w=800&q=80",
+      "eligibility": [
+        "Must be a non-EU/EEA national",
+        "Must hold an offer (conditional or unconditional) from an eligible Irish Higher Education Institution",
+        "Demonstrated record of outstanding academic achievement",
+        "Strong rationale for pursuing studies in Ireland aligned with strategic career goals"
+      ],
+      "docs": [
+        "Valid Passport",
+        "Official Academic Transcripts and Degree Certificates",
+        "University Offer Letter (Conditional or Unconditional) from an Irish Institution",
+        "Two Academic / Professional Letters of Recommendation",
+        "Personal Statement addressing academic excellence and ambassadorial potential"
+      ],
+      "steps": [
+        "Apply to a master's or doctoral program at an eligible Irish university or institute.",
+        "Obtain a conditional or unconditional admission offer letter.",
+        "Create an account on the official Higher Education Authority (HEA) online application portal.",
+        "Complete the scholarship application form, upload mandatory documents, and submit before the deadline.",
+        "Shortlisted candidates undergo evaluation by an independent international assessment panel."
+      ],
+      "tip": "Apply for your university offer as early as December or January. Your scholarship essay must explicitly detail how your presence will foster educational and economic ties between India and Ireland.",
+      "link": "https://hea.ie/policy/internationalisation/government-of-ireland-international-education-scholarships/"
     }
   ]
 }
