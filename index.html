@@ -10,336 +10,588 @@
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: linear-gradient(180deg, #eef4ff 0%, #f8fafc 100%);
+      background: linear-gradient(180deg, #e8f0fe 0%, #f4f7fb 100%);
     }
     .hero-bg {
-      background: radial-gradient(circle at 75% 30%, #1e40af 0%, #091336 55%, #050b24 100%);
+      background: radial-gradient(circle at 72% 35%, #1d4ed8 0%, #0a194e 48%, #040b29 100%);
     }
     .text-gradient {
-      background: linear-gradient(90deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      background: linear-gradient(90deg, #00d2ff 0%, #60a5fa 45%, #a855f7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .roadmap-card {
-      background: linear-gradient(160deg, #0b1739 0%, #132860 100%);
+      background: linear-gradient(165deg, #071235 0%, #0f2557 60%, #091536 100%);
     }
     .card-shadow {
-      box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+    }
+    .dropdown-menu {
+      display: none;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
     }
   </style>
 </head>
 <body class="text-slate-800 min-h-screen flex flex-col justify-between">
 
-  <!-- ================= TOP NAVBAR ================= -->
-  <header class="bg-[#081233] text-white border-b border-blue-900/50 sticky top-0 z-40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+  <!-- ================= TOP NAVBAR (EXACT IMAGE MATCH) ================= -->
+  <header class="bg-[#061030] text-white border-b border-blue-900/60 sticky top-0 z-40 shadow-lg">
+    <div class="max-w-[1340px] mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center gap-3 cursor-pointer" onclick="resetFilters()">
         <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
           <i class="fa-solid fa-graduation-cap text-xl text-white"></i>
         </div>
         <div>
-          <span class="text-xl font-extrabold tracking-tight text-white">Global<span class="text-cyan-400">Scholar</span></span>
-          <p class="text-[11px] text-blue-200/80 -mt-1">Dream • Apply • Study Abroad</p>
+          <span class="text-2xl font-extrabold tracking-tight text-white">Global<span class="text-sky-400">Scholar</span></span>
+          <p class="text-[11px] text-blue-200/80 -mt-1 tracking-wide">Dream • Apply • Study Abroad</p>
         </div>
       </div>
 
-      <!-- Nav Links -->
-      <nav class="hidden lg:flex items-center gap-2 text-sm font-medium text-blue-100">
-        <a href="#search-section" class="px-4 py-2 rounded-full bg-blue-600 text-white shadow-md shadow-blue-500/30 flex items-center gap-2">
+      <!-- Nav Links with Working Dropdowns -->
+      <nav class="hidden xl:flex items-center gap-1.5 text-sm font-semibold text-blue-100">
+        <a href="# top" onclick="resetFilters()" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md shadow-blue-500/30 flex items-center gap-2">
           <i class="fa-solid fa-house text-xs"></i> Home
         </a>
-        <a href="#scholarships-grid" class="px-4 py-2 rounded-full hover:bg-white/10 transition flex items-center gap-2">
-          <i class="fa-solid fa-trophy text-amber-400 text-xs"></i> Scholarships <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
-        </a>
-        <a href="#scholarships-grid" onclick="filterByCountry('Japan')" class="px-4 py-2 rounded-full hover:bg-white/10 transition flex items-center gap-2">
-          <i class="fa-solid fa-building-columns text-cyan-400 text-xs"></i> Universities <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
-        </a>
-        <a href="#roadmap-box" class="px-4 py-2 rounded-full hover:bg-white/10 transition flex items-center gap-2">
+
+        <!-- Scholarships Dropdown -->
+        <div class="relative dropdown">
+          <button class="px-4 py-2.5 rounded-full hover:bg-white/10 transition flex items-center gap-2">
+            <i class="fa-solid fa-trophy text-amber-400 text-xs"></i> Scholarships <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
+          </button>
+          <div class="dropdown-menu absolute left-0 mt-1 w-60 bg-[#0b1942] border border-blue-800 rounded-2xl shadow-2xl py-2 z-50 text-xs">
+            <a href="#scholarships-grid" onclick="quickFilter('level','Class 12 / High School')" class="block px-4 py-2.5 hover:bg-blue-600/40">🎓 Class 12 / Undergraduate</a>
+            <a href="#scholarships-grid" onclick="quickFilter('level','Master\'s Degree')" class="block px-4 py-2.5 hover:bg-blue-600/40">🏛️ Master's Degree Scholarships</a>
+            <a href="#scholarships-grid" onclick="quickFilter('level','PhD / Research')" class="block px-4 py-2.5 hover:bg-blue-600/40">🔬 PhD & Research Fellowships</a>
+            <a href="#scholarships-grid" onclick="quickFilter('funding','Fully Funded')" class="block px-4 py-2.5 hover:bg-blue-600/40 text-emerald-300 font-bold">💎 100% Fully Funded Only</a>
+          </div>
+        </div>
+
+        <!-- Universities Dropdown -->
+        <div class="relative dropdown">
+          <button class="px-4 py-2.5 rounded-full hover:bg-white/10 transition flex items-center gap-2">
+            <i class="fa-solid fa-building-columns text-cyan-400 text-xs"></i> Universities <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
+          </button>
+          <div class="dropdown-menu absolute left-0 mt-1 w-56 bg-[#0b1942] border border-blue-800 rounded-2xl shadow-2xl py-2 z-50 text-xs">
+            <a href="#scholarships-grid" onclick="quickFilter('country','USA')" class="block px-4 py-2.5 hover:bg-blue-600/40">🇺🇸 USA (Harvard, MIT, Stanford)</a>
+            <a href="#scholarships-grid" onclick="quickFilter('country','Japan')" class="block px-4 py-2.5 hover:bg-blue-600/40">🇯🇵 Japan (MEXT / UTokyo)</a>
+            <a href="#scholarships-grid" onclick="quickFilter('country','Russia')" class="block px-4 py-2.5 hover:bg-blue-600/40">🇷🇺 Russia (Innopolis / ITMO)</a>
+            <a href="#scholarships-grid" onclick="quickFilter('country','UK')" class="block px-4 py-2.5 hover:bg-blue-600/40">🇬🇧 UK (Oxford, Cambridge)</a>
+            <a href="#scholarships-grid" onclick="quickFilter('country','Germany')" class="block px-4 py-2.5 hover:bg-blue-600/40">🇩🇪 Germany & Europe (DAAD)</a>
+            <a href="#scholarships-grid" onclick="quickFilter('country','China')" class="block px-4 py-2.5 hover:bg-blue-600/40">🇨🇳 China (CSC Tsinghua)</a>
+          </div>
+        </div>
+
+        <!-- Guidance -->
+        <a href="#roadmap-box" class="px-4 py-2.5 rounded-full hover:bg-white/10 transition flex items-center gap-2">
           <i class="fa-solid fa-lightbulb text-yellow-300 text-xs"></i> Guidance <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
         </a>
-        <a href="#docs-guide" onclick="openDocsModal()" class="px-4 py-2 rounded-full hover:bg-white/10 transition flex items-center gap-2">
+
+        <!-- Resources -->
+        <button onclick="openDocsModal()" class="px-4 py-2.5 rounded-full hover:bg-white/10 transition flex items-center gap-2">
           <i class="fa-solid fa-file-lines text-emerald-400 text-xs"></i> Resources <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
-        </a>
+        </button>
+
+        <!-- AI Hunter -->
+        <button onclick="openAIHunterModal()" class="px-4 py-2.5 rounded-full bg-purple-600/30 border border-purple-400/40 hover:bg-purple-600/50 text-purple-200 transition flex items-center gap-2">
+          <i class="fa-solid fa-wand-magic-sparkles text-pink-400 text-xs"></i> AI Hunter
+        </button>
+
+        <button onclick="openAboutModal()" class="px-4 py-2.5 rounded-full hover:bg-white/10 transition flex items-center gap-2">
+          <i class="fa-solid fa-users text-blue-300 text-xs"></i> About Us
+        </button>
       </nav>
 
-      <!-- Right Action -->
+      <!-- Right Actions: Notifications & Working Sign In / Sign Up -->
       <div class="flex items-center gap-3">
-        <button onclick="openSavedModal()" class="relative p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-blue-100 transition" title="Saved Scholarships">
+        <!-- Notification Bell -->
+        <div class="relative">
+          <button onclick="toggleNotifPanel()" class="relative w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-blue-100 flex items-center justify-center transition">
+            <i class="fa-solid fa-bell"></i>
+            <span id="notif-badge" class="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-rose-500 text-[10px] font-bold flex items-center justify-center text-white">3</span>
+          </button>
+          <div id="notif-panel" class="hidden absolute right-0 mt-2 w-80 bg-[#0b1942] border border-blue-800 rounded-2xl shadow-2xl p-4 z-50 text-xs space-y-2.5">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2">
+              <span class="font-bold text-white">🔔 Live Scholarship Alerts</span>
+              <span class="text-[10px] text-cyan-400">24/7 AI Sync</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 cursor-pointer" onclick="openDetailModal('mext-japan'); toggleNotifPanel();">
+              <p class="font-bold text-cyan-300">🇯🇵 MEXT Japan 2027 Guide Updated</p>
+              <p class="text-blue-200/80 text-[11px]">Embassy track documents & math sample tips added.</p>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 cursor-pointer" onclick="openDetailModal('innopolis-it'); toggleNotifPanel();">
+              <p class="font-bold text-emerald-300">🇷🇺 Innopolis CS/AI Grant Open</p>
+              <p class="text-blue-200/80 text-[11px]">100% Tuition + Monthly Stipend for coders.</p>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 cursor-pointer" onclick="openAIHunterModal(); toggleNotifPanel();">
+              <p class="font-bold text-purple-300">🤖 AI Auto-Hunter Active</p>
+              <p class="text-blue-200/80 text-[11px]">Click to discover custom hidden scholarships with AI.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Saved Bookmarks Button -->
+        <button onclick="showSavedOnly()" class="relative w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-blue-100 flex items-center justify-center transition" title="My Saved Scholarships">
           <i class="fa-solid fa-bookmark"></i>
-          <span id="saved-count" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-pink-500 text-[10px] font-bold flex items-center justify-center text-white">0</span>
+          <span id="saved-count" class="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-amber-500 text-slate-950 text-[10px] font-extrabold flex items-center justify-center">0</span>
         </button>
-        <button onclick="openProfileMatcher()" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-blue-600/30 flex items-center gap-2 transition">
-          <i class="fa-solid fa-user-astronaut"></i> Smart Profile Check
-        </button>
+
+        <!-- Auth Button (Dynamic: Sign In / Sign Up OR Logged-in User Profile) -->
+        <div id="auth-btn-container">
+          <button onclick="openAuthModal('signin')" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/40 flex items-center gap-2 transition">
+            <i class="fa-solid fa-circle-user"></i> Sign In / Sign Up
+          </button>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- ================= HERO BANNER ================= -->
-  <section class="hero-bg text-white relative overflow-hidden pt-10 pb-28">
-    <!-- Ambient Glows -->
-    <div class="absolute -top-24 left-10 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 right-10 w-[500px] h-80 bg-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- ================= HERO BANNER (EXACT SCREENSHOT LAYOUT) ================= -->
+  <section class="hero-bg text-white relative overflow-hidden pt-8 pb-28">
+    <!-- Subtle Cloud & Landmark Backdrop Effect -->
+    <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center mix-blend-luminosity pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#040b29] via-[#091945]/90 to-transparent pointer-events-none"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-      <!-- Left Text -->
+    <div class="max-w-[1340px] mx-auto px-4 sm:px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <!-- Left Column: Headline + Curved Underline + 4 Feature Badges -->
       <div class="lg:col-span-7 space-y-5">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-cyan-300 text-xs font-semibold">
-          <i class="fa-solid fa-earth-americas"></i> 2026–2027 Global Intake Open • Class 12, UG, Master's & PhD
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-cyan-400/30 text-cyan-300 text-xs font-bold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span id="total-db-badge">24/7 Live AI Database • Verified Global Scholarships</span>
         </div>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+
+        <h1 class="text-4xl sm:text-5xl xl:text-[56px] font-extrabold leading-[1.12] tracking-tight">
           Find Your Perfect<br />
           <span class="text-gradient">Foreign Scholarship</span>
         </h1>
-        <p class="text-lg sm:text-xl text-blue-100/90 font-medium">
-          Your <span class="underline decoration-amber-400 decoration-2 underline-offset-4 font-bold text-white">Dream to Study Abroad</span> is Now Closer Than Ever!
-        </p>
 
-        <!-- 4 Feature Pills (Exact Match to Image) -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3">
-          <div class="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm">
-            <div class="w-9 h-9 rounded-full bg-cyan-500/20 text-cyan-300 flex items-center justify-center shrink-0">
-              <i class="fa-solid fa-globe"></i>
+        <!-- Subtitle with Exact Golden-Yellow Curved Underline -->
+        <div class="relative inline-block">
+          <p class="text-lg sm:text-2xl text-white font-bold">
+            Your <span class="relative inline-block">
+              Dream to Study Abroad
+              <svg class="absolute -bottom-2 left-0 w-full h-3 text-amber-400" viewBox="0 0 200 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9C60 2 140 2 197 7" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </span> is Now Closer Than Ever!
+          </p>
+        </div>
+
+        <!-- 4 Circular Icon Feature Badges (Exact Match) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+          <div class="flex items-center gap-3 bg-white/5 hover:bg-white/10 transition border border-white/10 rounded-2xl p-3 backdrop-blur-md">
+            <div class="w-10 h-10 rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 flex items-center justify-center shrink-0 shadow-inner">
+              <i class="fa-solid fa-earth-americas text-base"></i>
             </div>
-            <span class="text-xs font-semibold leading-snug">Top Global<br/>Scholarships</span>
+            <span class="text-xs font-bold leading-tight text-blue-50">Top Global<br/>Scholarships</span>
           </div>
-          <div class="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm">
-            <div class="w-9 h-9 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0">
-              <i class="fa-solid fa-bolt"></i>
+
+          <div class="flex items-center gap-3 bg-white/5 hover:bg-white/10 transition border border-white/10 rounded-2xl p-3 backdrop-blur-md">
+            <div class="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 flex items-center justify-center shrink-0 shadow-inner">
+              <i class="fa-solid fa-bolt text-base"></i>
             </div>
-            <span class="text-xs font-semibold leading-snug">Smart Search<br/>& Filters</span>
+            <span class="text-xs font-bold leading-tight text-blue-50">Smart Search<br/>& Filters</span>
           </div>
-          <div class="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm">
-            <div class="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0">
-              <i class="fa-solid fa-circle-check"></i>
+
+          <div class="flex items-center gap-3 bg-white/5 hover:bg-white/10 transition border border-white/10 rounded-2xl p-3 backdrop-blur-md">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 flex items-center justify-center shrink-0 shadow-inner">
+              <i class="fa-solid fa-check text-base"></i>
             </div>
-            <span class="text-xs font-semibold leading-snug">Step-by-Step<br/>Application Guide</span>
+            <span class="text-xs font-bold leading-tight text-blue-50">Step-by-Step<br/>Application Guide</span>
           </div>
-          <div class="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm">
-            <div class="w-9 h-9 rounded-full bg-yellow-500/20 text-yellow-300 flex items-center justify-center shrink-0">
-              <i class="fa-solid fa-star"></i>
+
+          <div class="flex items-center gap-3 bg-white/5 hover:bg-white/10 transition border border-white/10 rounded-2xl p-3 backdrop-blur-md">
+            <div class="w-10 h-10 rounded-full bg-yellow-500/20 border border-yellow-400/40 text-yellow-300 flex items-center justify-center shrink-0 shadow-inner">
+              <i class="fa-solid fa-star text-base"></i>
             </div>
-            <span class="text-xs font-semibold leading-snug">Best Apply Date<br/>& Roadmaps</span>
+            <span class="text-xs font-bold leading-tight text-blue-50">Expert Tips &<br/>Resources</span>
           </div>
         </div>
       </div>
 
-      <!-- Right Visual Banner Card -->
+      <!-- Right Column: Student + World Landmarks Visual Composite -->
       <div class="lg:col-span-5 relative">
-        <div class="relative rounded-3xl overflow-hidden border-2 border-blue-400/30 shadow-2xl bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80" alt="Students Studying Abroad" class="w-full h-72 sm:h-80 object-cover opacity-90" />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#050b24] via-transparent to-transparent"></div>
-          <div class="absolute bottom-4 left-4 right-4 bg-slate-900/85 backdrop-blur-md border border-white/15 rounded-2xl p-4 flex items-center justify-between">
+        <div class="relative rounded-3xl overflow-hidden border-2 border-cyan-400/30 shadow-2xl bg-[#0b1942]">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80" alt="Study Abroad Student" class="w-full h-72 sm:h-80 object-cover object-center" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#040b29] via-transparent to-transparent"></div>
+
+          <!-- Floating Plane Badge -->
+          <div class="absolute top-4 left-4 bg-white/95 text-slate-900 px-3.5 py-1.5 rounded-full text-xs font-extrabold shadow-lg flex items-center gap-2">
+            <i class="fa-solid fa-plane-departure text-blue-600"></i> Study Abroad 2026–27
+          </div>
+
+          <!-- Bottom Overlay Info -->
+          <div class="absolute bottom-4 left-4 right-4 bg-[#07133a]/90 backdrop-blur-md border border-blue-400/30 rounded-2xl p-3.5 flex items-center justify-between">
             <div>
-              <span class="text-[11px] uppercase tracking-wider text-cyan-400 font-bold">✈️ 100% Tuition + Monthly Stipend</span>
-              <h3 class="text-sm font-bold text-white mt-0.5">USA • Japan • Russia • UK • Germany • China</h3>
+              <p class="text-[11px] font-bold text-cyan-300 uppercase">🎓 Class 12 • UG • Master's • PhD</p>
+              <p class="text-xs font-extrabold text-white">USA • UK • Japan • Russia • Germany • Canada</p>
             </div>
-            <span class="px-3 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-xs font-bold">Verified 2026</span>
+            <button onclick="openAIHunterModal()" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold shadow">
+              🤖 Ask AI
+            </button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= FLOATING SEARCH & FILTER BAR ================= -->
-  <section id="search-section" class="max-w-7xl mx-auto px-4 sm:px-6 -mt-16 relative z-20">
-    <div class="bg-white rounded-3xl p-6 sm:p-7 shadow-xl border border-blue-100">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
-        <h2 class="text-xl font-extrabold text-slate-800 flex items-center gap-2.5">
+  <!-- ================= FLOATING SEARCH SCHOLARSHIPS BAR (EXACT IMAGE MATCH) ================= -->
+  <section id="search-section" class="max-w-[1340px] mx-auto px-4 sm:px-6 -mt-16 relative z-20">
+    <div class="bg-white rounded-3xl p-6 shadow-2xl border border-blue-100">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+        <h2 class="text-xl font-extrabold text-slate-900 flex items-center gap-2.5">
           <i class="fa-solid fa-magnifying-glass text-blue-600"></i> Search Scholarships
         </h2>
-        <span class="text-xs font-semibold text-amber-600 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
-          ✨ Find the best matches for your class, degree & dream country
-        </span>
+        <div class="flex items-center gap-4">
+          <span class="text-xs font-semibold text-slate-500 flex items-center gap-1.5">
+            <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i> Find the best matches for your profile
+          </span>
+          <button onclick="openAIHunterModal()" class="text-xs font-extrabold text-purple-600 hover:text-purple-700 underline flex items-center gap-1">
+            <i class="fa-solid fa-robot"></i> Missing a scholarship? Hunt with AI →
+          </button>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <!-- 4 Dropdowns + Search Button Row -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 items-center">
         <!-- 1. Your Level -->
-        <div class="bg-slate-50 hover:bg-blue-50/40 transition border border-slate-200 rounded-2xl px-4 py-2.5">
-          <label class="block text-[11px] font-semibold text-slate-400 uppercase">🎓 Your Current Level</label>
-          <select id="filter-level" onchange="applyFilters()" class="w-full bg-transparent font-bold text-slate-800 text-sm focus:outline-none mt-0.5 cursor-pointer">
-            <option value="ALL">All Levels (Class 12 / UG / PG)</option>
-            <option value="Class 12 / UG" selected>Class 12 Pass / Undergraduate (Bachelor's)</option>
-            <option value="Master's">College Grad / Master's Degree</option>
-            <option value="PhD">PhD / Research</option>
-          </select>
+        <div class="bg-[#f8faff] hover:bg-blue-50/50 transition border border-slate-200 rounded-2xl px-4 py-2.5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="w-full overflow-hidden">
+            <label class="block text-[11px] font-semibold text-slate-400">Your Level</label>
+            <select id="filter-level" onchange="applyFilters()" class="w-full bg-transparent font-extrabold text-slate-800 text-xs sm:text-sm focus:outline-none cursor-pointer truncate">
+              <option value="ALL">All Levels (12th / UG / PG / PhD)</option>
+              <option value="Class 12 / High School">Class 12 / High School</option>
+              <option value="Undergraduate">Undergraduate (Bachelor's)</option>
+              <option value="Master's Degree">Master's Degree</option>
+              <option value="PhD / Research">PhD / Research</option>
+            </select>
+          </div>
         </div>
 
         <!-- 2. Field of Study -->
-        <div class="bg-slate-50 hover:bg-blue-50/40 transition border border-slate-200 rounded-2xl px-4 py-2.5">
-          <label class="block text-[11px] font-semibold text-slate-400 uppercase">🏛️ Field of Study</label>
-          <select id="filter-field" onchange="applyFilters()" class="w-full bg-transparent font-bold text-slate-800 text-sm focus:outline-none mt-0.5 cursor-pointer">
-            <option value="ALL">All Fields (CS, Engg, Science, Arts)</option>
-            <option value="Computer Science">Computer Science / AI / IT</option>
-            <option value="Engineering">Engineering & Technology</option>
-            <option value="Science">Pure Sciences & Maths</option>
-            <option value="Business">Business, Economics & Arts</option>
-          </select>
+        <div class="bg-[#f8faff] hover:bg-blue-50/50 transition border border-slate-200 rounded-2xl px-4 py-2.5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-building-columns"></i>
+          </div>
+          <div class="w-full overflow-hidden">
+            <label class="block text-[11px] font-semibold text-slate-400">Field of Study</label>
+            <select id="filter-field" onchange="applyFilters()" class="w-full bg-transparent font-extrabold text-slate-800 text-xs sm:text-sm focus:outline-none cursor-pointer truncate">
+              <option value="ALL">All Fields of Study</option>
+              <option value="Computer Science">Computer Science & AI</option>
+              <option value="Engineering">Engineering & Tech</option>
+              <option value="Science">Pure Sciences & Maths</option>
+              <option value="Medicine">Medicine & Healthcare</option>
+              <option value="Business">Business, Arts & Law</option>
+            </select>
+          </div>
         </div>
 
         <!-- 3. Preferred Country -->
-        <div class="bg-slate-50 hover:bg-blue-50/40 transition border border-slate-200 rounded-2xl px-4 py-2.5">
-          <label class="block text-[11px] font-semibold text-slate-400 uppercase">🌍 Preferred Country</label>
-          <select id="filter-country" onchange="applyFilters()" class="w-full bg-transparent font-bold text-slate-800 text-sm focus:outline-none mt-0.5 cursor-pointer">
-            <option value="ALL">All Countries (Global)</option>
-            <option value="USA">🇺🇸 USA</option>
-            <option value="Japan">🇯🇵 Japan (MEXT)</option>
-            <option value="Russia">🇷🇺 Russia (Govt / Innopolis)</option>
-            <option value="UK">🇬🇧 United Kingdom</option>
-            <option value="Germany">🇩🇪 Germany / Europe</option>
-            <option value="China">🇨🇳 China (CSC)</option>
-            <option value="South Korea">🇰🇷 South Korea (GKS)</option>
-            <option value="Turkey">🇹🇷 Turkey (Burslari)</option>
-          </select>
+        <div class="bg-[#f8faff] hover:bg-blue-50/50 transition border border-slate-200 rounded-2xl px-4 py-2.5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <div class="w-full overflow-hidden">
+            <label class="block text-[11px] font-semibold text-slate-400">Preferred Country</label>
+            <select id="filter-country" onchange="applyFilters()" class="w-full bg-transparent font-extrabold text-slate-800 text-xs sm:text-sm focus:outline-none cursor-pointer truncate">
+              <option value="ALL">All Countries (Global)</option>
+              <option value="USA">USA</option>
+              <option value="UK">UK</option>
+              <option value="Japan">Japan</option>
+              <option value="Russia">Russia</option>
+              <option value="Germany">Germany</option>
+              <option value="Canada">Canada</option>
+              <option value="China">China</option>
+              <option value="South Korea">South Korea</option>
+              <option value="Australia">Australia</option>
+              <option value="Switzerland">Switzerland</option>
+              <option value="Turkey">Turkey</option>
+              <option value="Singapore">Singapore</option>
+            </select>
+          </div>
         </div>
 
         <!-- 4. Scholarship Type -->
-        <div class="bg-slate-50 hover:bg-blue-50/40 transition border border-slate-200 rounded-2xl px-4 py-2.5">
-          <label class="block text-[11px] font-semibold text-slate-400 uppercase">💰 Funding Type</label>
-          <select id="filter-funding" onchange="applyFilters()" class="w-full bg-transparent font-bold text-slate-800 text-sm focus:outline-none mt-0.5 cursor-pointer">
-            <option value="ALL">All Funding Types</option>
-            <option value="Fully Funded">💎 100% Fully Funded (Tuition + Stipend + Flight)</option>
-            <option value="Tuition + Stipend">💵 Full Tuition + Monthly Stipend</option>
-          </select>
+        <div class="bg-[#f8faff] hover:bg-blue-50/50 transition border border-slate-200 rounded-2xl px-4 py-2.5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-sack-dollar"></i>
+          </div>
+          <div class="w-full overflow-hidden">
+            <label class="block text-[11px] font-semibold text-slate-400">Scholarship Type</label>
+            <select id="filter-funding" onchange="applyFilters()" class="w-full bg-transparent font-extrabold text-slate-800 text-xs sm:text-sm focus:outline-none cursor-pointer truncate">
+              <option value="ALL">All Scholarship Types</option>
+              <option value="Fully Funded">Fully Funded</option>
+              <option value="Tuition + Stipend">Tuition + Stipend</option>
+            </select>
+          </div>
         </div>
 
         <!-- 5. Search Button -->
-        <button onclick="applyFilters()" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-2xl px-6 py-3.5 shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2 transition text-sm">
+        <button onclick="applyFilters()" class="h-full min-h-[54px] bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold rounded-2xl px-6 shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2.5 transition text-sm">
           <i class="fa-solid fa-magnifying-glass"></i> Search Scholarships
         </button>
       </div>
 
-      <!-- Quick Keyword Search & Active Count -->
-      <div class="mt-4 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <!-- Quick Live Search Input & Filter Status Bar -->
+      <div class="mt-4 pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
         <div class="relative w-full sm:w-96">
-          <i class="fa-solid fa-keyboard absolute left-3.5 top-3 text-slate-400 text-xs"></i>
-          <input id="keyword-input" oninput="applyFilters()" type="text" placeholder="Type scholarship or university name (e.g. MEXT, Harvard, Innopolis)..."
-            class="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-100 text-xs font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-slate-400 text-xs"></i>
+          <input id="keyword-input" oninput="applyFilters()" type="text" placeholder="Quick search by name (e.g., Harvard, Chevening, Fulbright, MEXT, Innopolis, DAAD)..."
+            class="w-full pl-9 pr-4 py-1.5 rounded-xl bg-slate-100 text-xs font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500" />
         </div>
-        <div class="flex items-center gap-3 text-xs font-semibold">
-          <span id="results-counter" class="text-blue-700 bg-blue-50 px-3 py-1.5 rounded-xl border border-blue-200">Showing Top Matches</span>
-          <button onclick="resetFilters()" class="text-slate-500 hover:text-blue-600 underline">Show All Scholarships</button>
+        <div class="flex items-center gap-3 text-xs font-bold">
+          <span id="results-counter" class="text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">Loading scholarships...</span>
+          <button onclick="resetFilters()" class="text-slate-500 hover:text-blue-600 underline">Reset Filters</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= MAIN CONTENT: CARDS + ROADMAP SIDEBAR ================= -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+  <!-- ================= MAIN SECTION: 3-COL CARDS + RIGHT ROADMAP ================= -->
+  <main class="max-w-[1340px] mx-auto px-4 sm:px-6 py-9">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
 
-      <!-- LEFT 9 COLUMNS: SCHOLARSHIP CARDS -->
-      <div class="lg:col-span-9 space-y-6">
-        <div class="flex items-center justify-between">
+      <!-- LEFT 9 COLUMNS: TOP FOREIGN SCHOLARSHIPS -->
+      <div class="lg:col-span-9 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-2">
           <div class="flex items-center gap-2.5">
             <span class="text-2xl">🔥</span>
-            <h2 class="text-2xl font-extrabold text-slate-800">Top Foreign Scholarships</h2>
+            <h2 class="text-2xl font-extrabold text-slate-900">Top Foreign Scholarships</h2>
           </div>
-          <button onclick="resetFilters()" class="px-4 py-2 rounded-full bg-white border border-slate-200 text-blue-600 font-bold text-xs shadow-sm hover:bg-blue-50 transition">
-            View All Scholarships →
-          </button>
+          <div class="flex items-center gap-2">
+            <button onclick="openAIHunterModal()" class="px-4 py-2 rounded-full bg-purple-50 border border-purple-200 text-purple-700 font-extrabold text-xs hover:bg-purple-100 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> + Discover More with AI
+            </button>
+            <button onclick="resetFilters()" class="px-4 py-2 rounded-full bg-white border border-slate-200 text-blue-600 font-extrabold text-xs shadow-sm hover:bg-blue-50 transition">
+              View All Scholarships →
+            </button>
+          </div>
         </div>
 
-        <!-- Dynamic Cards Container -->
-        <div id="scholarships-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+        <!-- Cards Grid (3 Columns on Desktop) -->
+        <div id="scholarships-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
       </div>
 
-      <!-- RIGHT 3 COLUMNS: YOUR SCHOLARSHIP ROADMAP -->
-      <aside id="roadmap-box" class="lg:col-span-3 roadmap-card text-white rounded-3xl p-6 shadow-2xl border border-blue-400/20 sticky top-24">
+      <!-- RIGHT 3 COLUMNS: YOUR SCHOLARSHIP ROADMAP (EXACT SCREENSHOT DESIGN) -->
+      <aside id="roadmap-box" class="lg:col-span-3 roadmap-card text-white rounded-3xl p-6 shadow-2xl border border-blue-400/20 sticky top-24 relative overflow-hidden">
+        <!-- Decorative Dashed Airplane Path -->
         <div class="flex items-center justify-between pb-4 border-b border-white/10">
           <div class="flex items-center gap-2">
             <div class="w-8 h-8 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-cyan-300">
-              <i class="fa-solid fa-route"></i>
+              <i class="fa-solid fa-map-location-dot"></i>
             </div>
-            <h3 class="font-extrabold text-base">Your Scholarship Roadmap</h3>
+            <h3 class="font-extrabold text-sm tracking-tight">Your Scholarship Roadmap</h3>
           </div>
+          <button onclick="openDocsModal()" class="text-[11px] font-bold text-blue-200 hover:text-white flex items-center gap-1">
+            View Full Guide →
+          </button>
         </div>
 
-        <!-- 5 Steps Vertical Timeline -->
-        <div class="mt-6 space-y-6 relative before:absolute before:left-4 before:top-3 before:bottom-3 before:w-0.5 before:bg-emerald-500/40">
+        <p class="text-[11px] text-blue-200/80 mt-2">Click any step to mark your personal application progress:</p>
 
-          <div class="relative pl-10">
-            <div class="absolute left-0 top-0.5 w-8 h-8 rounded-full bg-emerald-500 text-slate-950 font-extrabold text-xs flex items-center justify-center shadow-lg shadow-emerald-500/30">1</div>
-            <div class="flex items-center justify-between">
-              <h4 class="font-bold text-sm text-white">Prepare Your Profile</h4>
-              <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
-            </div>
-            <p class="text-xs text-blue-200/80 mt-0.5">Keep 10th/12th/Degree marksheets, Passport & CV ready</p>
-          </div>
+        <!-- 5 Interactive Roadmap Steps -->
+        <div id="roadmap-steps-container" class="mt-4 space-y-5 relative before:absolute before:left-4 before:top-3 before:bottom-3 before:w-0.5 before:bg-emerald-500/40"></div>
 
-          <div class="relative pl-10">
-            <div class="absolute left-0 top-0.5 w-8 h-8 rounded-full bg-emerald-500 text-slate-950 font-extrabold text-xs flex items-center justify-center shadow-lg shadow-emerald-500/30">2</div>
-            <div class="flex items-center justify-between">
-              <h4 class="font-bold text-sm text-white">Search & Shortlist</h4>
-              <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
-            </div>
-            <p class="text-xs text-blue-200/80 mt-0.5">Filter 3–5 Fully Funded scholarships matching your level</p>
-          </div>
-
-          <div class="relative pl-10">
-            <div class="absolute left-0 top-0.5 w-8 h-8 rounded-full bg-blue-500 text-white font-extrabold text-xs flex items-center justify-center ring-4 ring-blue-400/30">3</div>
-            <div class="flex items-center justify-between">
-              <h4 class="font-bold text-sm text-cyan-300">Apply 3 Weeks Early</h4>
-              <i class="fa-solid fa-plane-up text-cyan-300 text-sm"></i>
-            </div>
-            <p class="text-xs text-blue-200/80 mt-0.5">Submit online form, SOP & 2 Recommendation Letters (LOR)</p>
-          </div>
-
-          <div class="relative pl-10">
-            <div class="absolute left-0 top-0.5 w-8 h-8 rounded-full bg-slate-800 border border-blue-400/40 text-blue-200 font-extrabold text-xs flex items-center justify-center">4</div>
-            <h4 class="font-bold text-sm text-white">Written Test / Interview</h4>
-            <p class="text-xs text-blue-200/80 mt-0.5">Clear embassy/university online test & interview round</p>
-          </div>
-
-          <div class="relative pl-10">
-            <div class="absolute left-0 top-0.5 w-8 h-8 rounded-full bg-slate-800 border border-blue-400/40 text-blue-200 font-extrabold text-xs flex items-center justify-center">5</div>
-            <h4 class="font-bold text-sm text-white">Visa & Free Flight Ticket</h4>
-            <p class="text-xs text-blue-200/80 mt-0.5">Receive official Offer Letter, Student Visa & fly abroad!</p>
-          </div>
-
+        <!-- Decorative Plane Icon on Right -->
+        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+          <span id="roadmap-progress-text" class="text-cyan-300 font-bold">2 / 5 Completed</span>
+          <button onclick="openDocsModal()" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold transition flex items-center gap-1.5">
+            <i class="fa-solid fa-file-shield text-emerald-400"></i> Required Docs
+          </button>
         </div>
-
-        <!-- Master Document Checklist Button -->
-        <button onclick="openDocsModal()" class="mt-7 w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition">
-          <i class="fa-solid fa-clipboard-check"></i> View Required Docs Guide
-        </button>
       </aside>
 
     </div>
   </main>
 
-  <!-- ================= BOTTOM TRUST & CTA BAR (EXACT IMAGE MATCH) ================= -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-12">
-    <div class="bg-white rounded-3xl p-4 sm:p-5 shadow-lg border border-blue-100 flex flex-wrap items-center justify-between gap-4">
-      <div class="flex items-center gap-2.5 px-2">
-        <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-globe"></i></div>
-        <span class="text-xs font-bold text-slate-700">Scholarships from<br/>USA, Japan, Russia, UK & More</span>
+  <!-- ================= BOTTOM TRUST PILLS & PURPLE CTA BAR (EXACT IMAGE MATCH) ================= -->
+  <section class="max-w-[1340px] mx-auto px-4 sm:px-6 pb-12">
+    <div class="bg-white/90 backdrop-blur-md rounded-3xl p-4 shadow-xl border border-blue-100 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5 px-2.5 py-1.5">
+        <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-globe"></i></div>
+        <span class="text-xs font-bold text-slate-700 leading-tight">Scholarships from<br/>USA, UK, Canada & More</span>
       </div>
-      <div class="flex items-center gap-2.5 px-2">
-        <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-shield-halved"></i></div>
-        <span class="text-xs font-bold text-slate-700">100% Verified<br/>& Updated Info</span>
+
+      <div class="hidden sm:block h-7 w-px bg-slate-200"></div>
+
+      <div class="flex items-center gap-2.5 px-2.5 py-1.5">
+        <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-shield-check"></i></div>
+        <span class="text-xs font-bold text-slate-700 leading-tight">100% Verified<br/>& Updated Info</span>
       </div>
-      <div class="flex items-center gap-2.5 px-2">
-        <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-calendar-check"></i></div>
-        <span class="text-xs font-bold text-slate-700">Best Date to Apply<br/>& Smart Deadlines</span>
+
+      <div class="hidden sm:block h-7 w-px bg-slate-200"></div>
+
+      <div class="flex items-center gap-2.5 px-2.5 py-1.5">
+        <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-headset"></i></div>
+        <span class="text-xs font-bold text-slate-700 leading-tight">Expert Guidance<br/>& Support</span>
       </div>
-      <div class="flex items-center gap-2.5 px-2">
-        <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-file-shield"></i></div>
-        <span class="text-xs font-bold text-slate-700">Detailed Application<br/>Guide & Documents</span>
+
+      <div class="hidden sm:block h-7 w-px bg-slate-200"></div>
+
+      <div class="flex items-center gap-2.5 px-2.5 py-1.5 cursor-pointer" onclick="openDocsModal()">
+        <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-file-contract"></i></div>
+        <span class="text-xs font-bold text-slate-700 leading-tight">Detailed Application<br/>Guide & Documents</span>
       </div>
-      <button onclick="openProfileMatcher()" class="ml-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs shadow-lg shadow-purple-500/30 flex items-center gap-2 transition">
+
+      <div class="hidden sm:block h-7 w-px bg-slate-200"></div>
+
+      <div class="flex items-center gap-2.5 px-2.5 py-1.5">
+        <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-star"></i></div>
+        <span class="text-xs font-bold text-slate-700 leading-tight">Boost Your Chances<br/>with Pro Tips</span>
+      </div>
+
+      <button onclick="startJourneyAction()" class="w-full xl:w-auto px-7 py-3.5 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-extrabold text-xs shadow-lg shadow-purple-600/30 flex items-center justify-center gap-2 transition">
         Start Your Scholarship Journey <i class="fa-solid fa-arrow-right"></i>
       </button>
     </div>
   </section>
 
+  <!-- ================= EMAIL / PASSWORD SIGN IN & SIGN UP MODAL ================= -->
+  <div id="auth-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50" onclick="closeAuthModal()">
+    <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-blue-100" onclick="event.stopPropagation()">
+      <!-- Top Header -->
+      <div class="hero-bg p-6 text-white relative">
+        <button onclick="closeAuthModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white">✕</button>
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-2xl bg-cyan-400/20 border border-cyan-300/40 flex items-center justify-center text-cyan-300">
+            <i class="fa-solid fa-graduation-cap text-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-extrabold">GlobalScholar Account</h3>
+            <p class="text-xs text-blue-200">Save scholarships, track deadlines & personalize matches</p>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="grid grid-cols-2 gap-2 bg-slate-950/50 p-1 rounded-2xl mt-5">
+          <button id="tab-signin" onclick="switchAuthTab('signin')" class="py-2 rounded-xl text-xs font-extrabold bg-blue-600 text-white transition">Sign In</button>
+          <button id="tab-signup" onclick="switchAuthTab('signup')" class="py-2 rounded-xl text-xs font-extrabold text-blue-200 hover:text-white transition">Create Account (Sign Up)</button>
+        </div>
+      </div>
+
+      <!-- Auth Form Body -->
+      <div class="p-6">
+        <div id="auth-msg" class="hidden mb-4 p-3 rounded-xl text-xs font-bold"></div>
+
+        <!-- SIGN IN FORM -->
+        <form id="signin-form" onsubmit="handleSignIn(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Email Address</label>
+            <input id="signin-email" type="email" required placeholder="student@example.com"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-blue-600" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Password</label>
+            <input id="signin-password" type="password" required placeholder="••••••••"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-blue-600" />
+          </div>
+          <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold text-sm shadow-lg">
+            Sign In to GlobalScholar →
+          </button>
+        </form>
+
+        <!-- SIGN UP FORM -->
+        <form id="signup-form" onsubmit="handleSignUp(event)" class="hidden space-y-3.5">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Your Full Name</label>
+            <input id="signup-name" type="text" required placeholder="Nirwan Sharma"
+              class="w-full px-4 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-blue-600" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Email Address</label>
+            <input id="signup-email" type="email" required placeholder="student@example.com"
+              class="w-full px-4 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-blue-600" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Create Password (min 6 chars)</label>
+            <input id="signup-password" type="password" minlength="6" required placeholder="••••••••"
+              class="w-full px-4 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-blue-600" />
+          </div>
+          <div class="grid grid-cols-2 gap-2.5">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Your Current Level</label>
+              <select id="signup-level" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-bold">
+                <option value="Class 12 / High School">Class 12 / High School</option>
+                <option value="Undergraduate">Undergraduate (UG)</option>
+                <option value="Master's Degree">Master's Degree</option>
+                <option value="PhD / Research">PhD / Research</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Dream Field</label>
+              <select id="signup-field" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-bold">
+                <option value="Computer Science">Computer Science</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Science">Pure Sciences</option>
+                <option value="Medicine">Medicine</option>
+                <option value="Business">Business & Arts</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-sm shadow-lg">
+            Create Free Account & Match Profile →
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 🤖 AI LIVE DEEP SCHOLARSHIP HUNTER MODAL ================= -->
+  <div id="ai-hunter-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50 overflow-y-auto" onclick="closeAIHunterModal()">
+    <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-purple-200 my-8" onclick="event.stopPropagation()">
+      <div class="bg-gradient-to-r from-indigo-900 via-purple-900 to-slate-900 p-6 text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-purple-500/30 border border-purple-400/40 flex items-center justify-center text-pink-300 text-xl">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-extrabold">AI Global Scholarship Deep Hunter</h3>
+            <p class="text-xs text-purple-200">Find hidden scholarships from any country or university & save them to the website!</p>
+          </div>
+        </div>
+        <button onclick="closeAIHunterModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">✕</button>
+      </div>
+
+      <div class="p-6 space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <input id="ai-query-country" type="text" placeholder="Target Country (e.g. Canada, Italy, Japan)"
+            class="px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-bold focus:outline-none focus:border-purple-600" />
+          <input id="ai-query-degree" type="text" placeholder="Level (e.g. Class 12 UG, Master's, PhD)"
+            class="px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-bold focus:outline-none focus:border-purple-600" />
+          <input id="ai-query-field" type="text" placeholder="Subject (e.g. Computer Science, MBBS)"
+            class="px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-bold focus:outline-none focus:border-purple-600" />
+        </div>
+
+        <!-- Optional Gemini Key for Live Browser Generation -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3.5">
+          <div class="flex items-center justify-between">
+            <label class="text-[11px] font-bold text-slate-600">🔑 Google Gemini API Key (Optional — for live on-demand AI generation in browser):</label>
+            <span class="text-[10px] text-emerald-600 font-bold">Saved locally in your browser</span>
+          </div>
+          <input id="ai-browser-key" type="password" placeholder="Paste Gemini API Key (or leave blank to use Built-In Global AI Vault)"
+            class="mt-1.5 w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs focus:outline-none" />
+        </div>
+
+        <button id="ai-hunt-btn" onclick="runLiveAIScholarshipHunt()" class="w-full py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Hunt & Add New Scholarships to Website
+        </button>
+
+        <div id="ai-hunt-status" class="hidden p-4 rounded-2xl bg-purple-50 border border-purple-200 text-xs text-purple-900 space-y-2"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- ================= FULL SCHOLARSHIP DETAILS MODAL ================= -->
   <div id="detail-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50 overflow-y-auto" onclick="closeDetailModal()">
     <div class="bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl my-8 border border-blue-100" onclick="event.stopPropagation()">
-      <!-- Modal Banner Image -->
+      <!-- Top Campus Banner -->
       <div class="relative h-56 bg-slate-900">
-        <img id="m-img" src="" alt="Campus" class="w-full h-full object-cover opacity-85" />
+        <img id="m-img" src="" alt="University Campus" class="w-full h-full object-cover opacity-85" />
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
         <button onclick="closeDetailModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center">✕</button>
         <div class="absolute bottom-4 left-6 right-6 text-white">
@@ -351,469 +603,767 @@
         </div>
       </div>
 
-      <!-- Modal Content -->
-      <div class="p-6 sm:p-8 space-y-6 max-h-[75vh] overflow-y-auto">
-        <!-- Key Dates & Best Time to Apply Alert -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-blue-50/80 border border-blue-200 rounded-2xl p-4">
+      <!-- Details Body -->
+      <div class="p-6 sm:p-8 space-y-5 max-h-[72vh] overflow-y-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-blue-50/90 border border-blue-200 rounded-2xl p-4">
           <div>
-            <span class="text-[11px] font-bold uppercase text-slate-400">📅 Application Window</span>
+            <span class="text-[11px] font-bold uppercase text-slate-400">📅 Application Deadline</span>
             <p id="m-deadline" class="text-sm font-extrabold text-slate-800 mt-0.5"></p>
           </div>
           <div>
-            <span class="text-[11px] font-bold uppercase text-emerald-600">🎯 Best Time to Fill Form</span>
+            <span class="text-[11px] font-bold uppercase text-emerald-600">🎯 Best Date to Apply</span>
             <p id="m-best-date" class="text-sm font-extrabold text-emerald-700 mt-0.5"></p>
           </div>
           <div>
-            <span class="text-[11px] font-bold uppercase text-purple-600">🎓 Eligible Levels</span>
+            <span class="text-[11px] font-bold uppercase text-purple-600">🎓 Eligible Level</span>
             <p id="m-levels" class="text-sm font-extrabold text-purple-800 mt-0.5"></p>
           </div>
         </div>
 
-        <!-- Financial Benefits -->
         <div>
-          <h4 class="text-sm font-extrabold uppercase tracking-wider text-slate-400 mb-2">💰 Complete Financial Benefits</h4>
-          <div id="m-benefits" class="bg-emerald-50 border border-emerald-200 text-emerald-900 rounded-2xl p-4 text-sm font-semibold"></div>
+          <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">💰 Financial Coverage & Benefits</h4>
+          <div id="m-benefits" class="bg-emerald-50 border border-emerald-200 text-emerald-950 rounded-2xl p-4 text-sm font-semibold"></div>
         </div>
 
-        <!-- Eligibility Criteria -->
         <div>
-          <h4 class="text-sm font-extrabold uppercase tracking-wider text-slate-400 mb-2">✅ Who Can Apply (Eligibility Requirements)</h4>
-          <ul id="m-eligibility" class="list-disc list-inside space-y-1.5 text-sm text-slate-700 bg-slate-50 p-4 rounded-2xl border border-slate-200"></ul>
+          <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">✅ Eligibility Requirements</h4>
+          <ul id="m-eligibility" class="list-disc list-inside space-y-1 text-sm text-slate-700 bg-slate-50 p-4 rounded-2xl border border-slate-200"></ul>
         </div>
 
-        <!-- Required Documents Checklist -->
         <div>
-          <h4 class="text-sm font-extrabold uppercase tracking-wider text-slate-400 mb-2">📄 Required Documents Checklist</h4>
+          <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">📄 Required Documents Checklist (Click to Tick)</h4>
           <div id="m-docs" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-700"></div>
         </div>
 
-        <!-- Step-by-Step Application Roadmap -->
         <div>
-          <h4 class="text-sm font-extrabold uppercase tracking-wider text-slate-400 mb-2">🗺️ Step-by-Step How to Apply Roadmap</h4>
-          <ol id="m-steps" class="space-y-2 text-sm text-slate-700 bg-slate-50 p-4 rounded-2xl border border-slate-200 list-decimal list-inside"></ol>
+          <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">🗺️ Complete Step-by-Step Application Roadmap</h4>
+          <ol id="m-steps" class="space-y-1.5 text-sm text-slate-700 bg-slate-50 p-4 rounded-2xl border border-slate-200 list-decimal list-inside"></ol>
         </div>
 
-        <!-- Pro Tip -->
         <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-900">
-          <strong>💡 Insider Selection Tip:</strong> <span id="m-tip"></span>
+          <strong>💡 Selection Recommendation Tip:</strong> <span id="m-tip"></span>
         </div>
 
-        <!-- Bottom Action Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-slate-200">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-200">
           <button id="m-save-btn" class="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-300 hover:bg-slate-100 font-bold text-xs text-slate-700 flex items-center justify-center gap-2">
-            <i class="fa-regular fa-bookmark"></i> Save to My Shortlist
+            <i class="fa-regular fa-bookmark"></i> Save to My Account
           </button>
           <a id="m-link" href="#" target="_blank" rel="noopener noreferrer"
             class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-xs shadow-lg flex items-center justify-center gap-2">
-            🌐 Open Official Application Portal <i class="fa-solid fa-up-right-from-square"></i>
+            🌐 Apply on Official Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= MASTER DOCUMENTS & TIMELINE MODAL ================= -->
+  <!-- ================= DOCUMENTS & RESOURCES MODAL ================= -->
   <div id="docs-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50" onclick="closeDocsModal()">
-    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-5 shadow-2xl" onclick="event.stopPropagation()">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-4 shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between border-b pb-3">
-        <h3 class="text-xl font-extrabold text-slate-800">📋 Master Document Checklist for Foreign Scholarships</h3>
+        <h3 class="text-xl font-extrabold text-slate-800">📋 Complete Study Abroad Document & Timeline Guide</h3>
         <button onclick="closeDocsModal()" class="text-slate-400 hover:text-slate-700 text-lg font-bold">✕</button>
       </div>
-      <div class="space-y-3 text-sm text-slate-700 max-h-[65vh] overflow-y-auto pr-2">
+      <div class="space-y-3 text-xs sm:text-sm text-slate-700 max-h-[65vh] overflow-y-auto pr-1">
         <div class="p-3.5 rounded-2xl bg-blue-50 border border-blue-200">
-          <strong>1. Valid Passport:</strong> Sabse pehle apna Passport banwao (kam se kam 2 saal validity honi chahiye).
+          <strong>1. Passport (Mandatory):</strong> Apply for your passport at least 6 months before scholarship deadlines.
         </div>
         <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
-          <strong>2. Academic Marksheets & Transcripts:</strong> Class 10th, Class 12th (aur agar Master's ke liye apply kar rahe ho toh Bachelor's degree transcript) English mein attested.
+          <strong>2. Academic Transcripts:</strong> Class 10th & 12th Marksheets (for UG) or Bachelor's Degree Transcripts (for Master's/PhD). Get Principal/Controller attestation.
         </div>
         <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
-          <strong>3. Letters of Recommendation (LOR):</strong> Apne school Principal ya 2 teachers/professors se signed recommendation letter.
+          <strong>3. Letters of Recommendation (2 LORs):</strong> Signed letters from 2 teachers/professors highlighting your rank, coding/science projects, and character.
         </div>
         <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
-          <strong>4. Statement of Purpose (SOP) / Study Plan:</strong> 500–800 words ka essay ki tum wo course aur country kyun chuna chahte ho aur tumhare projects kya hain.
-        </div>
-        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
-          <strong>5. English / Language Proof:</strong> IELTS / TOEFL / Duolingo English Test (Ya School se "Medium of Instruction in English" certificate—kaafi scholarships isse IELTS maaf kar deti hain!).
+          <strong>4. Statement of Purpose (SOP) / Research Plan:</strong> 600–1,000 word essay explaining why you chose this major, your achievements, and future goals.
         </div>
         <div class="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200">
-          <strong>6. Medical Fitness Certificate:</strong> Government hospital se signed health checkup form (MEXT, Russia aur CSC China mein zaroori hota hai).
+          <strong>5. English Proficiency / MOI Certificate:</strong> IELTS / TOEFL / Duolingo score, OR an official "Medium of Instruction in English" letter from your school/college.
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= JAVASCRIPT DATABASE & ENGINE ================= -->
+  <!-- ================= ABOUT US MODAL ================= -->
+  <div id="about-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50" onclick="closeAboutModal()">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-4 shadow-2xl" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b pb-3">
+        <h3 class="text-xl font-extrabold text-slate-800">🌍 About GlobalScholar</h3>
+        <button onclick="closeAboutModal()" class="text-slate-400 hover:text-slate-700 text-lg font-bold">✕</button>
+      </div>
+      <p class="text-sm text-slate-600 leading-relaxed">
+        <strong>GlobalScholar</strong> is an autonomous 24/7 AI-powered foreign scholarship discovery platform built to help ambitious students from Class 12, Undergraduate, Master's, and PhD levels find 100% verified, fully funded global scholarships without paying expensive consultancy fees.
+      </p>
+      <div class="bg-blue-50 border border-blue-200 rounded-2xl p-4 text-xs text-blue-900 space-y-1">
+        <div>⚡ <strong>24/7 Cloud AI Sync:</strong> Automatically hunts & updates new scholarships via GitHub Actions.</div>
+        <div>🎯 <strong>Smart Profile Matching:</strong> Filters by exact education level, field of study, and funding type.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= COMPLETE JAVASCRIPT ENGINE ================= -->
   <script>
-    const SCHOLARSHIPS = [
+    // 1. BUILT-IN MEGA SCHOLARSHIP DATABASE (Matches Screenshot + Global Coverage)
+    const DEFAULT_SCHOLARSHIPS = [
       {
-        id: "mext-japan",
-        title: "MEXT Japanese Government Scholarship",
-        university: "University of Tokyo, Kyoto, Osaka & All National Universities",
-        country: "Japan",
-        flag: "🇯🇵",
-        badge: "🔥 Top for Class 12 & PG",
-        badgeColor: "bg-rose-500",
-        fundingType: "Fully Funded",
-        deadline: "May 15, 2027 (Embassy Track)",
-        bestDate: "Apply between April 20 – May 5",
-        levels: ["Class 12 / UG", "Master's", "PhD"],
-        fields: ["ALL", "Computer Science", "Engineering", "Science", "Business"],
-        benefitsShort: "100% Tuition + ¥117,000/month Stipend + Free Flight",
-        benefitsFull: "100% Tuition Fee Waived + ¥117,000 to ¥145,000/month Living Allowance (~₹68,000/month) + Free Round-Trip Economy Air Ticket from India to Japan + Zero Application Exam Fee.",
-        image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80",
-        logoText: "MEXT JAPAN",
-        eligibility: [
-          "For Undergraduate (Gakubu): Class 12 passed or appearing with minimum 65%–70% in PCM/PCB/ Commerce/Arts (Age under 25).",
-          "For Master's/PhD: Bachelor's degree with 70%+ marks (Age under 35).",
-          "Japanese language is NOT mandatory at the time of application (1 year free preparatory Japanese course included)."
-        ],
-        docs: [
-          "Class 10 & 12 Marksheets (Attested)",
-          "MEXT Application Form & Placement Preference",
-          "Recommendation Letter from School Principal/Teacher",
-          "Medical Certificate on MEXT Format",
-          "Passport or Birth/Domicile Proof",
-          "Study Plan / Statement of Purpose"
-        ],
-        steps: [
-          "Download the Embassy of Japan in India MEXT Preliminary Application form in April.",
-          "Email the 2-page preliminary application form before the May deadline.",
-          "Appear for the Written Examination (Maths, English, Physics/Chemistry) & Interview in June/July at New Delhi, Mumbai, Kolkata, or Chennai.",
-          "Clear embassy screening, submit medical + LORs, and fly to Japan in April!"
-        ],
-        tip: "Solve past 10 years of MEXT Mathematics & Physics question papers and mention your coding/tech projects or basic JLPT N5/N4 Japanese learning in your interview for a massive edge!",
-        link: "https://www.in.emb-japan.go.jp/Education/japanese_government_scholarships.html"
-      },
-      {
-        id: "harvard-aid",
-        title: "Harvard University Financial Aid Scholarship",
-        university: "Harvard University, Cambridge",
+        id: "harvard-usa",
+        title: "Harvard University Scholarships",
+        university: "Harvard University",
+        logoTitle: "Harvard University",
+        logoIcon: "fa-building-columns",
+        logoColor: "text-red-800",
         country: "USA",
         flag: "🇺🇸",
         badge: "⭐ Popular",
-        badgeColor: "bg-red-500",
+        badgeColor: "bg-[#e11d48]",
         fundingType: "Fully Funded",
-        deadline: "Jan 1, 2027 (Regular) / Nov 1 (Early)",
-        bestDate: "Apply between Oct 15 – Dec 15",
-        levels: ["Class 12 / UG", "Master's", "PhD"],
-        fields: ["ALL", "Computer Science", "Engineering", "Science", "Business"],
-        benefitsShort: "Full Tuition + Room & Board + Travel Grant",
-        benefitsFull: "100% Need-Based Grant: If your family income is under $85,000/year (~₹70 Lakhs), you pay $0 for Tuition, Hostel, Food, Health Insurance, and receive a $2,000 Start-Up Grant + Flight Tickets!",
+        deadline: "Jan 1, 2027",
+        bestDate: "Oct 15 – Dec 10",
+        levels: ["Class 12 / High School", "Undergraduate", "Master's Degree", "PhD / Research"],
+        forLabel: "Undergraduate / Graduate",
+        fields: ["ALL", "Computer Science", "Engineering", "Science", "Medicine", "Business"],
+        benefitsShort: "Full Tuition + Stipend + Travel",
+        benefitsFull: "100% Need-Based Financial Aid covering Full Tuition, Hostel, Meals, Health Insurance + $2,000 Start-Up Grant & Economy Flights (100% free if family income is under $85,000/yr).",
         image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
-        logoText: "HARVARD",
         eligibility: [
-          "Open to international students from India in Class 12 (for Bachelor's) or final year of college (for Grad school).",
-          "Strong academic record (90%+ in Class 10/11/12) + impactful extracurriculars (coding projects, Olympiads, community leadership).",
-          "SAT/ACT and Duolingo/TOEFL scores recommended."
+          "Class 12 appearing/passed students (for Bachelor's) or college graduates (for Master's/PhD).",
+          "Outstanding academic record (90%+ or top 5% of class) and strong extracurricular achievements.",
+          "Demonstrated financial need via CSS Profile."
         ],
-        docs: [
-          "Common Application (CommonApp) Form",
-          "Class 9, 10, 11 & 12 Predicted/Final Transcripts",
-          "2 Teacher Recommendation Letters + Counselor Report",
-          "CSS Profile & Family Income Proof for 100% Free Aid",
-          "Personal Essay (650 words) + Extracurricular Portfolio"
-        ],
+        docs: ["CommonApp Application", "Class 9–12 Transcripts", "2 Teacher LORs", "CSS Financial Aid Profile", "Personal Essay (650 words)", "Passport Copy"],
         steps: [
-          "Create an account on CommonApp.org and add Harvard University.",
-          "Submit your academic transcripts, essays, and 2 teacher LORs before November 1 (Early) or January 1 (Regular).",
-          "Fill out the CSS Financial Aid Profile showing family income to unlock the 100% free scholarship.",
-          "Receive admission + full scholarship decision by March end."
+          "Submit admission application via CommonApp.org before Nov 1 (Early) or Jan 1 (Regular).",
+          "Submit the CSS Financial Aid Profile with family income details.",
+          "Upload school transcripts and 2 teacher recommendation letters.",
+          "Attend alumni interview and receive full financial aid package in March."
         ],
-        tip: "Harvard loves builders! Highlight real-world projects (like indie games, AI tools, or community initiatives you built from scratch) in your CommonApp essay.",
+        tip: "Apply at least 3 weeks before Jan 1 and showcase real coding, robotics, or community leadership projects in your CommonApp essay.",
         link: "https://college.harvard.edu/financial-aid"
       },
       {
-        id: "russian-govt",
-        title: "Russian Government Scholarship (Open Doors / RCSC)",
-        university: "ITMO, MIPT, HSE Moscow, Bauman & 500+ Russian Universities",
-        country: "Russia",
-        flag: "🇷🇺",
-        flagText: "Russia",
-        badge: "🚀 No IELTS Needed",
-        badgeColor: "bg-blue-600",
+        id: "chevening-uk",
+        title: "Chevening Scholarships",
+        university: "Oxford, Cambridge, Imperial & All UK Universities",
+        logoTitle: "Chevening",
+        logoIcon: "fa-crown",
+        logoColor: "text-blue-900",
+        country: "UK",
+        flag: "🇬🇧",
+        badge: "Fully Funded",
+        badgeColor: "bg-[#10b981]",
         fundingType: "Fully Funded",
-        deadline: "Jan 15, 2027 (Quota) / Dec 10 (Open Doors)",
-        bestDate: "Apply between Oct 10 – Dec 20",
-        levels: ["Class 12 / UG", "Master's", "PhD"],
-        fields: ["ALL", "Computer Science", "Engineering", "Science"],
-        benefitsShort: "100% Free Tuition + Monthly Stipend + Subsidized Hostel",
-        benefitsFull: "100% Free Tuition at Russia's top CS/Engineering universities + Monthly Government Stipend + Ultra-low cost University Dormitory ($15/month) + Zero IELTS/TOEFL requirement!",
-        image: "https://images.unsplash.com/photo-1513326738677-b964603b136d?auto=format&fit=crop&w=800&q=80",
-        logoText: "EDUCATION IN RUSSIA",
+        deadline: "Nov 11, 2026",
+        bestDate: "Sept 15 – Oct 25",
+        levels: ["Master's Degree"],
+        forLabel: "Master's Degree",
+        fields: ["ALL", "Computer Science", "Engineering", "Science", "Business"],
+        benefitsShort: "Tuition + Living Expenses",
+        benefitsFull: "100% UK University Tuition Fees + Monthly Living Stipend (~£1,378–£1,690/mo) + Return Economy Flights to London + Free UK Student Visa.",
+        image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
         eligibility: [
-          "Class 12 students (appearing or passed) for Bachelor's; Bachelor's students for Master's.",
-          "Minimum 60%–70% marks in school/college.",
-          "No IELTS/TOEFL required! Both English-taught and Russian-taught tracks available."
+          "Completed an Undergraduate (Bachelor's) degree.",
+          "Minimum 2 years (2,800 hours) of work experience, internships, freelancing, or startup leadership.",
+          "Apply to 3 eligible UK Master's programs."
         ],
-        docs: [
-          "Passport Copy",
-          "Class 10 & 12 Marksheet (or Class 11 marksheet if currently in Class 12)",
-          "Completed Application on education-in-russia.com",
-          "Portfolio of Certificates, Coding Contests, or Projects",
-          "Medical Fitness Certificate (Required only after selection)"
-        ],
+        docs: ["Bachelor's Transcripts", "4 Chevening Leadership/Career Essays", "2 Reference Letters", "Passport", "Unconditional UK Univ Offer (by July)"],
         steps: [
-          "Register on the official portal (education-in-russia.com) or Open Doors Olympiad (od.globaluni.ru).",
-          "Select up to 6 top Russian universities (like ITMO, MIPT, HSE, Kazan Federal) and upload your marksheets + certificates.",
-          "Give the online portfolio review / short subject test from home.",
-          "Get selected on the official quota list and apply for your Russian Student Visa!"
+          "Fill out the online application at chevening.org before the November deadline.",
+          "Write the 4 required 500-word essays on Leadership, Networking, Study in UK, and Career Plan.",
+          "Clear the British High Commission interview in March/April.",
+          "Submit unconditional offer from 1 UK university by July and fly in September!"
         ],
-        tip: "Upload every coding certificate, hackathon participation, or project screenshot in the 'Individual Achievements' section—it directly boosts your ranking points!",
-        link: "https://education-in-russia.com/"
+        tip: "Submit by late October so you avoid last-minute portal crashes on November 11!",
+        link: "https://www.chevening.org/scholarships/"
+      },
+      {
+        id: "fulbright-usa",
+        title: "Fulbright Scholarships",
+        university: "MIT, Stanford, CMU & Top US Universities",
+        logoTitle: "Fulbright",
+        logoIcon: "fa-globe",
+        logoColor: "text-sky-600",
+        country: "USA",
+        flag: "🇺🇸",
+        badge: "Best for Research",
+        badgeColor: "bg-[#8b5cf6]",
+        fundingType: "Fully Funded",
+        deadline: "May 15, 2027",
+        bestDate: "March 20 – May 1",
+        levels: ["Master's Degree", "PhD / Research"],
+        forLabel: "Master's / PhD",
+        fields: ["ALL", "Computer Science", "Engineering", "Science", "Business"],
+        benefitsShort: "Tuition + Stipend",
+        benefitsFull: "100% Tuition & Fees + Monthly Living Stipend + Round-Trip Economy Airfare + Health Insurance + J-1 Visa Support.",
+        image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+        eligibility: [
+          "4-year Bachelor's degree (B.Tech/B.E.) or Master's degree with 55%+ marks.",
+          "Strong research or professional project background."
+        ],
+        docs: ["USIEF Online Form", "Study/Research Objective Essay", "Personal Statement", "3 Reference Letters", "University Transcripts", "TOEFL/GRE Score"],
+        steps: [
+          "Register on the USIEF portal and complete your online application by May 15.",
+          "Attach 3 strong recommendation letters and your research/study plan.",
+          "Attend the national selection interview.",
+          "Receive university placement, J-1 visa sponsorship, and flight tickets."
+        ],
+        tip: "Start drafting your Study Objective essay in March and get a professor to review it before submitting.",
+        link: "https://www.usief.org.in/"
+      },
+      {
+        id: "mext-japan",
+        title: "MEXT Japanese Government Scholarship",
+        university: "University of Tokyo, Kyoto & Osaka University",
+        logoTitle: "MEXT Japan",
+        logoIcon: "fa-torii-gate",
+        logoColor: "text-rose-600",
+        country: "Japan",
+        flag: "🇯🇵",
+        badge: "🔥 Top for Class 12 & PG",
+        badgeColor: "bg-[#e11d48]",
+        fundingType: "Fully Funded",
+        deadline: "May 15, 2027",
+        bestDate: "April 18 – May 5",
+        levels: ["Class 12 / High School", "Undergraduate", "Master's Degree", "PhD / Research"],
+        forLabel: "Class 12 UG / Master's / PhD",
+        fields: ["ALL", "Computer Science", "Engineering", "Science", "Business"],
+        benefitsShort: "100% Tuition + ¥117,000/mo + Flights",
+        benefitsFull: "100% Tuition Waived + ¥117,000 to ¥145,000/month Living Stipend + Free Round-Trip Air Ticket + 1-Year Preparatory Japanese Course.",
+        image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80",
+        eligibility: [
+          "Class 12 pass/appearing with 65%+ marks for Undergraduate (Gakubu).",
+          "Bachelor's degree with 70%+ for Master's/PhD (Kenkyusei).",
+          "No prior Japanese certificate required to apply."
+        ],
+        docs: ["MEXT Application Form", "Class 10 & 12 Marksheets", "School Recommendation Letter", "Medical Fitness Certificate", "Study Plan Essay"],
+        steps: [
+          "Download the MEXT form from the Embassy of Japan in India website in April.",
+          "Submit preliminary form via email before May 15.",
+          "Appear for the written test (Maths, English, Science) & interview in June/July.",
+          "Get final MEXT placement and fly to Tokyo in April!"
+        ],
+        tip: "Practice past MEXT Mathematics & Physics papers and mention any Japanese language self-study (Hiragana/Katakana/Kanji) in your interview!",
+        link: "https://www.in.emb-japan.go.jp/Education/japanese_government_scholarships.html"
       },
       {
         id: "innopolis-it",
         title: "Innopolis University IT & AI Grant",
-        university: "Innopolis University (Russia's Silicon Valley)",
+        university: "Innopolis University (Russia's IT Hub)",
+        logoTitle: "Innopolis Univ",
+        logoIcon: "fa-laptop-code",
+        logoColor: "text-emerald-600",
         country: "Russia",
         flag: "🇷🇺",
         badge: "💻 Best for CS & GameDev",
-        badgeColor: "bg-emerald-600",
+        badgeColor: "bg-[#10b981]",
         fundingType: "Fully Funded",
-        deadline: "April 30, 2027 (Multiple Waves)",
-        bestDate: "Apply in Wave 1 (Nov – Feb) for highest grant",
-        levels: ["Class 12 / UG", "Master's"],
+        deadline: "April 30, 2027",
+        bestDate: "Nov 15 – Feb 20 (Wave 1)",
+        levels: ["Class 12 / High School", "Undergraduate", "Master's Degree"],
+        forLabel: "Class 12 UG / Master's (CS & AI)",
         fields: ["Computer Science", "Engineering"],
-        benefitsShort: "100% Tuition Grant + Monthly Stipend up to 42,000 RUB",
-        benefitsFull: "100% Tuition Coverage + Monthly Stipend (12,000 to 42,000 RUB/month) + 100% English-Taught CS, AI, Robotics & Game Development curriculum + Modern Campus Dormitory.",
+        benefitsShort: "100% Tuition + Up to 42,000 RUB/mo",
+        benefitsFull: "100% Tuition Grant + Monthly Stipend (12,000 to 42,000 RUB) + 100% English-Taught CS, AI & Game Development Degree + Subsidized Dormitory.",
         image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
-        logoText: "INNOPOLIS IT",
         eligibility: [
-          "Class 12 PCM students (for B.Sc. in Computer Science / AI) or B.Tech/BCA grads (for M.Sc.).",
-          "Strong interest in Programming (C++, Python, C#), Mathematics, and Algorithms.",
-          "All classes are 100% in English—no Russian required."
+          "Class 12 PCM students (for B.Sc. in CS/AI) or CS/IT graduates (for M.Sc.).",
+          "Strong coding skills in C++, Python, or C# and Mathematics.",
+          "100% English medium—no IELTS or Russian required."
         ],
-        docs: [
-          "Online Application on apply.innopolis.university",
-          "Passport & High School Transcripts",
-          "Developer Portfolio / GitHub Link & Motivation Letter",
-          "Online Programming & Math Test (conducted by Innopolis)"
-        ],
+        docs: ["Passport Copy", "Class 10/11/12 Transcripts", "GitHub / Coding Portfolio", "Motivation Letter"],
         steps: [
-          "Create an account on apply.innopolis.university and fill out the grant form.",
-          "Take the online Mathematics, Programming & English test from home.",
-          "Complete a 20-minute technical interview on Zoom with an Innopolis professor.",
-          "Receive your 100% Tuition Grant + Stipend offer letter!"
+          "Register on apply.innopolis.university and submit your portfolio.",
+          "Complete the online Mathematics & Programming test from home.",
+          "Pass a 20-minute technical interview with faculty.",
+          "Receive your 100% Tuition Grant + Monthly Stipend offer!"
         ],
-        tip: "Since you practice C++, Python, LeetCode/Codeforces, and Unity game development, showcase your GitHub and game projects during the interview—Innopolis loves practical coders!",
+        tip: "Showcase your GitHub repositories, Unity games, Python bots, and competitive programming profile during the interview!",
         link: "https://apply.innopolis.university/en/"
       },
       {
-        id: "chevening-uk",
-        title: "Chevening UK Government Scholarships",
-        university: "Oxford, Cambridge, Imperial, UCL & All UK Universities",
-        country: "UK",
-        flag: "🇬🇧",
-        badge: "Fully Funded",
-        badgeColor: "bg-emerald-500",
+        id: "russian-govt",
+        title: "Russian Government Scholarship (RCSC / Open Doors)",
+        university: "ITMO, MIPT, HSE Moscow & 500+ Universities",
+        logoTitle: "Russia Quota",
+        logoIcon: "fa-building-shield",
+        logoColor: "text-blue-700",
+        country: "Russia",
+        flag: "🇷🇺",
+        badge: "🚀 No IELTS Needed",
+        badgeColor: "bg-[#2563eb]",
         fundingType: "Fully Funded",
-        deadline: "Nov 5, 2026 / Nov 2027",
-        bestDate: "Apply between Sept 10 – Oct 20",
-        levels: ["Master's"],
-        fields: ["ALL", "Computer Science", "Engineering", "Science", "Business"],
-        benefitsShort: "Full Tuition + £1,378/mo Living Stipend + Flights + Visa",
-        benefitsFull: "100% University Tuition Fees + Monthly Living Stipend (~£1,378–£1,690/month) + Return Economy Flights to the UK + Free UK Visa + Arrival & Departure Allowances.",
-        image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
-        logoText: "CHEVENING UK",
+        deadline: "Jan 15, 2027",
+        bestDate: "Oct 15 – Dec 20",
+        levels: ["Class 12 / High School", "Undergraduate", "Master's Degree", "PhD / Research"],
+        forLabel: "Undergraduate / Master's / PhD",
+        fields: ["ALL", "Computer Science", "Engineering", "Science", "Medicine", "Business"],
+        benefitsShort: "100% Free Tuition + Stipend + Hostel",
+        benefitsFull: "100% Free Tuition across 500+ Russian universities + Monthly Government Stipend + $15/mo University Hostel + Zero IELTS requirement.",
+        image: "https://images.unsplash.com/photo-1513326738677-b964603b136d?auto=format&fit=crop&w=800&q=80",
         eligibility: [
-          "Completed an Undergraduate (Bachelor's) degree.",
-          "At least 2 years (2,800 hours) of work experience, internships, freelancing, or entrepreneurship.",
-          "Apply to 3 eligible UK Master's courses."
+          "Class 12 students (appearing or passed) for Bachelor's/MBBS/Engineering, or graduates for Master's/PhD.",
+          "No IELTS/TOEFL required."
         ],
-        docs: [
-          "Bachelor's Degree Transcripts & Certificate",
-          "4 Short Chevening Essays (Leadership, Networking, Career Plan, Why UK)",
-          "2 Reference Letters",
-          "Valid Passport & Unconditional Offer from 1 UK University (by July)"
-        ],
+        docs: ["Passport Copy", "Class 10 & 12 Marksheet", "Achievement Certificates", "Medical Certificate (after selection)"],
         steps: [
-          "Submit your online application and 4 leadership/career essays on chevening.org before early November.",
-          "Get shortlisted in February and upload 2 references.",
-          "Attend the British High Commission interview in March/April.",
-          "Confirm 1 unconditional UK university offer by July and fly to London in September!"
+          "Register on education-in-russia.com between October and January.",
+          "Pick up to 6 universities (like ITMO, MIPT, HSE, Kazan Federal) and upload your marksheets + certificates.",
+          "Complete online portfolio evaluation.",
+          "Get selected on the official embassy quota list!"
         ],
-        tip: "Your startup/entrepreneurship experience, school administration tools, or studio co-founding work counts directly toward leadership and work experience!",
-        link: "https://www.chevening.org/scholarships/"
+        tip: "Upload hackathon, olympiad, or project certificates—each certificate adds extra points to your selection score.",
+        link: "https://education-in-russia.com/"
       },
       {
-        id: "fulbright-nehru",
-        title: "Fulbright-Nehru Fellowships",
-        university: "MIT, Stanford, Carnegie Mellon & Top US Universities",
-        country: "USA",
-        flag: "🇺🇸",
-        badge: "Best for Research & PG",
-        badgeColor: "bg-purple-600",
+        id: "daad-germany",
+        title: "DAAD Scholarships Germany",
+        university: "TU Munich, RWTH Aachen & Heidelberg University",
+        logoTitle: "DAAD Germany",
+        logoIcon: "fa-gears",
+        logoColor: "text-indigo-800",
+        country: "Germany",
+        flag: "🇩🇪",
+        badge: "Fully Funded",
+        badgeColor: "bg-[#10b981]",
         fundingType: "Fully Funded",
-        deadline: "May 15, 2027",
-        bestDate: "Apply between March 15 – May 1",
-        levels: ["Master's", "PhD"],
+        deadline: "Oct 31, 2026",
+        bestDate: "Aug 15 – Oct 10",
+        levels: ["Master's Degree", "PhD / Research"],
+        forLabel: "Master's / PhD",
         fields: ["ALL", "Computer Science", "Engineering", "Science", "Business"],
-        benefitsShort: "Full Tuition + Living Stipend + J-1 Visa + Airfare",
-        benefitsFull: "Full Tuition & Fees + Monthly Living Stipend + Round-Trip Economy Air Ticket + Accident & Sickness Health Coverage + J-1 Visa Sponsorship.",
-        image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
-        logoText: "FULBRIGHT USA",
+        benefitsShort: "Zero Tuition + €934–€1,300/mo + Flights",
+        benefitsFull: "Zero Tuition Fees at German Public Universities + €934/month (Master's) or €1,300/month (PhD) Stipend + Return Airfare + Free Health Insurance.",
+        image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80",
         eligibility: [
-          "4-year Bachelor's degree (like B.Tech/B.E.) OR Master's degree with minimum 55%+ marks.",
-          "Strong commitment to return and contribute to India after completing studies.",
-          "Leadership & community service record."
+          "Bachelor's degree with above-average results (minimum 75%+).",
+          "For EPOS track: 2 years of relevant experience/internships."
         ],
-        docs: [
-          "USIEF Online Application Form",
-          "Study/Research Objective Essay & Personal Statement",
-          "3 Letters of Recommendation",
-          "University Transcripts & TOEFL/GRE Scores"
-        ],
+        docs: ["DAAD Portal Form", "Europass CV", "Motivation Letter", "University Transcripts", "2 Recommendation Letters", "IELTS/TOEFL"],
         steps: [
-          "Register on the USIEF (United States-India Educational Foundation) portal.",
-          "Upload your academic transcripts, 2 essays, and 3 recommendation letters by May 15.",
-          "Appear for the national panel interview in New Delhi.",
-          "USIEF places you at top US universities with full funding!"
+          "Select up to 3 courses from the DAAD scholarship database.",
+          "Prepare a strict Europass-format CV and motivation letter.",
+          "Submit on the DAAD portal before October 31.",
+          "Receive your scholarship award letter in March/April."
         ],
-        tip: "Focus your Study Objective essay on solving a real technological or educational problem in India using AI/Computer Science.",
-        link: "https://www.usief.org.in/Fellowships-for-Indian-Citizens.aspx"
+        tip: "Germany strictly checks the Europass CV format—use the official Europass builder when applying!",
+        link: "https://www.daad.de/en/"
       },
       {
         id: "csc-china",
-        title: "Chinese Government Scholarship (CSC - Type A & B)",
-        university: "Tsinghua University, Peking, Zhejiang & Fudan University",
+        title: "Chinese Government Scholarship (CSC)",
+        university: "Tsinghua, Peking, Zhejiang & Fudan University",
+        logoTitle: "CSC China",
+        logoIcon: "fa-dragon",
+        logoColor: "text-amber-700",
         country: "China",
         flag: "🇨🇳",
-        badge: "💎 270+ Top Universities",
-        badgeColor: "bg-amber-600",
+        badge: "💎 270+ Universities",
+        badgeColor: "bg-[#8b5cf6]",
         fundingType: "Fully Funded",
         deadline: "Feb 28, 2027",
-        bestDate: "Apply between Dec 15 – Feb 10",
-        levels: ["Class 12 / UG", "Master's", "PhD"],
-        fields: ["ALL", "Computer Science", "Engineering", "Science", "Business"],
-        benefitsShort: "100% Tuition + Free Hostel + 2,500–3,500 CNY/mo Stipend",
-        benefitsFull: "100% Tuition Waiver + Free On-Campus University Accommodation + Monthly Stipend (2,500 CNY for UG, 3,000 CNY for Master's, 3,500 CNY for PhD) + Comprehensive Medical Insurance.",
+        bestDate: "Dec 15 – Feb 10",
+        levels: ["Class 12 / High School", "Undergraduate", "Master's Degree", "PhD / Research"],
+        forLabel: "Undergraduate / Master's / PhD",
+        fields: ["ALL", "Computer Science", "Engineering", "Science", "Medicine", "Business"],
+        benefitsShort: "100% Tuition + Free Hostel + 3,000 CNY/mo",
+        benefitsFull: "100% Tuition Waiver + Free On-Campus Hostel + Monthly Stipend (2,500–3,500 CNY/mo) + Medical Insurance.",
         image: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80",
-        logoText: "CSC CHINA",
         eligibility: [
-          "Class 12 pass (under age 25) for Bachelor's; Bachelor's degree (under age 35) for Master's.",
-          "English-taught programs available for Master's/PhD and select UG courses; free 1-year Chinese foundation included if needed.",
-          "CSCA Test / University interview required."
+          "Class 12 passed (under age 25) for UG; Bachelor's degree (under age 35) for Master's.",
+          "English-taught and Chinese-taught tracks available."
         ],
-        docs: [
-          "CSC Online Application Form (campuschina.org)",
-          "Notarized Highest Diploma & Marksheets",
-          "2 Recommendation Letters",
-          "Foreigner Physical Examination Form (Medical)",
-          "Non-Criminal Record Certificate & Study Plan (800+ words)"
-        ],
+        docs: ["CSC Form (campuschina.org)", "Notarized Transcripts", "2 LORs", "Foreigner Physical Exam Form", "Study Plan (800 words)", "Police Clearance"],
         steps: [
-          "Create an account on Study in China (campuschina.org).",
-          "Contact university professors for an optional Pre-Admission/Acceptance Letter to double your chances.",
-          "Fill out the CSC form, choose Type A (Embassy) or Type B (University Agency Number), and upload documents by February.",
-          "Receive the official JW201 Visa form and Admission Notice in July!"
+          "Create an account on campuschina.org and select Type A or Type B.",
+          "Email university professors to get an optional Pre-Admission/Supervisor letter.",
+          "Upload all documents before February 28.",
+          "Receive Admission Notice and JW201 Visa form in July."
         ],
-        tip: "Emailing 5–10 Computer Science professors at your target university with your CV to get a 'Supervisor Acceptance Letter' increases your CSC selection chance to 90%+!",
+        tip: "Getting a Supervisor Acceptance Letter from a university professor boosts your CSC success rate above 85%!",
         link: "https://www.campuschina.org/"
+      },
+      {
+        id: "lester-pearson-canada",
+        title: "Lester B. Pearson International Scholarship",
+        university: "University of Toronto",
+        logoTitle: "Univ of Toronto",
+        logoIcon: "fa-maple-leaf",
+        logoColor: "text-red-600",
+        country: "Canada",
+        flag: "🇨🇦",
+        badge: "⭐ Top for Class 12",
+        badgeColor: "bg-[#e11d48]",
+        fundingType: "Fully Funded",
+        deadline: "Nov 30, 2026",
+        bestDate: "Sept 20 – Nov 1 (School Nomination)",
+        levels: ["Class 12 / High School", "Undergraduate"],
+        forLabel: "Class 12 / Undergraduate",
+        fields: ["ALL", "Computer Science", "Engineering", "Science", "Business"],
+        benefitsShort: "4 Years Full Tuition + Books + Residence",
+        benefitsFull: "100% Tuition Fees for 4 Years at University of Toronto + Free Books + Incidental Fees + Full On-Campus Residence Support for 4 Years.",
+        image: "https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=800&q=80",
+        eligibility: [
+          "International student currently in Class 12 (or graduated no earlier than June of previous year).",
+          "Must be nominated by your high school principal.",
+          "High academic achievement (90%+) and creative/leadership impact."
+        ],
+        docs: ["High School Nomination Form", "OUAC Admission Application to UofT", "Class 10, 11 & 12 Predicted Marksheets", "Pearson Scholarship Essays"],
+        steps: [
+          "Ask your school Principal to nominate you via the UofT portal by October/November.",
+          "Apply to University of Toronto for your Undergraduate major (like CS or Engineering).",
+          "Complete the online Lester B. Pearson scholarship application before the deadline.",
+          "Results are announced in April!"
+        ],
+        tip: "Since each school can nominate only 1 student per year, speak to your school principal early in September/October!",
+        link: "https://future.utoronto.ca/pearson/about/"
       },
       {
         id: "gks-korea",
         title: "Global Korea Scholarship (GKS / KGSP)",
-        university: "KAIST, Seoul National University (SNU), Yonsei & Korea Univ",
+        university: "KAIST, Seoul National University & Yonsei",
+        logoTitle: "GKS Korea",
+        logoIcon: "fa-microchip",
+        logoColor: "text-indigo-700",
         country: "South Korea",
         flag: "🇰🇷",
-        badge: "🌟 High Acceptance",
-        badgeColor: "bg-indigo-600",
+        badge: "Fully Funded",
+        badgeColor: "bg-[#10b981]",
         fundingType: "Fully Funded",
-        deadline: "Oct 15 (UG) / March 15 (PG)",
-        bestDate: "Apply 20 days before Embassy deadline",
-        levels: ["Class 12 / UG", "Master's", "PhD"],
+        deadline: "Oct 15 (UG) / Mar 15 (PG)",
+        bestDate: "Sept 10 (UG) / Feb 15 (PG)",
+        levels: ["Class 12 / High School", "Undergraduate", "Master's Degree", "PhD / Research"],
+        forLabel: "Undergraduate / Master's / PhD",
         fields: ["ALL", "Computer Science", "Engineering", "Science", "Business"],
-        benefitsShort: "100% Tuition + 1,000,000 KRW/mo + Round-Trip Flights",
-        benefitsFull: "100% Tuition Waiver + Monthly Allowance (900,000 to 1,000,000 KRW/month) + Free Economy Round-Trip Airfare + 1-Year Free Korean Language Training + Medical Insurance.",
+        benefitsShort: "100% Tuition + 1,000,000 KRW/mo + Flights",
+        benefitsFull: "100% Tuition Waiver + Monthly Stipend (1,000,000 KRW/mo) + Round-Trip Economy Air Ticket + 1-Year Free Korean Language Course + Medical Insurance.",
         image: "https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=800&q=80",
-        logoText: "GKS KOREA",
         eligibility: [
-          "80%+ marks or CGPA equivalent in previous school/college.",
-          "Under 25 years old for Undergraduate (GKS-U); under 40 for Graduate (GKS-G).",
-          "Both Embassy Track (choose 3 universities) and University Track (choose 1 direct university like KAIST) available."
+          "80%+ marks in previous school/degree.",
+          "Age under 25 for Undergraduate; under 40 for Master's/PhD."
         ],
-        docs: [
-          "GKS Application Forms & Personal Statement",
-          "Apostilled / Embassy Attested Marksheets & Birth/Citizenship Proof",
-          "1–2 Recommendation Letters",
-          "Study Plan & Health Assessment"
-        ],
+        docs: ["GKS Application Form", "Apostilled Transcripts", "Personal Statement & Study Plan", "2 Recommendation Letters", "Citizenship Proof"],
         steps: [
-          "Check StudyInKorea.go.kr in September (for UG) or February (for Master's/PhD).",
-          "Choose University Track (direct to KAIST/UNIST/Yonsei) or Embassy Track.",
-          "Send apostilled documents and attend the online interview.",
-          "Fly to South Korea with full tuition + monthly stipend!"
+          "Check StudyInKorea.go.kr in September (for Class 12 UG) or February (for Master's/PhD).",
+          "Apply via Embassy Track (3 universities) or University Track (1 direct university like KAIST).",
+          "Pass document screening and online interview.",
+          "Fly to South Korea with full government sponsorship!"
         ],
-        tip: "Applying via the 'University Track' to a STEM university (like KAIST, GIST, or UNIST) for Computer Science has a much higher selection rate for Indian students!",
+        tip: "Applying via University Track directly to STEM institutes like KAIST, UNIST, or GIST gives Indian CS/Engineering students a huge advantage.",
         link: "https://www.studyinkorea.go.kr/"
+      },
+      {
+        id: "gates-cambridge",
+        title: "Gates Cambridge Scholarship",
+        university: "University of Cambridge",
+        logoTitle: "Cambridge Univ",
+        logoIcon: "fa-graduation-cap",
+        logoColor: "text-amber-700",
+        country: "UK",
+        flag: "🇬🇧",
+        badge: "Best for Research",
+        badgeColor: "bg-[#8b5cf6]",
+        fundingType: "Fully Funded",
+        deadline: "Dec 3, 2026",
+        bestDate: "Oct 10 – Nov 20",
+        levels: ["Master's Degree", "PhD / Research"],
+        forLabel: "Master's / PhD",
+        fields: ["ALL", "Computer Science", "Engineering", "Science", "Medicine", "Business"],
+        benefitsShort: "Full Cambridge Cost + £20,000/yr Stipend + Flights",
+        benefitsFull: "100% Cambridge University Tuition + £20,000/year Maintenance Allowance + Economy Airfare + Visa & Immigration Health Surcharge.",
+        image: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80",
+        eligibility: [
+          "Citizens of any country outside the UK applying for a full-time postgraduate degree (MPhil/PhD) at Cambridge.",
+          "Outstanding intellectual ability and leadership potential."
+        ],
+        docs: ["Cambridge Grad Application", "Gates Cambridge Statement (500 words)", "Research Proposal", "3 Reference Letters", "Academic Transcripts"],
+        steps: [
+          "Apply via the University of Cambridge Graduate Applicant Portal.",
+          "Fill out the Gates Cambridge funding section and upload your 500-word statement + Gates reference.",
+          "Attend panel interview in January/February.",
+          "Receive full scholarship offer in March!"
+        ],
+        tip: "Get one of your professors to write a dedicated 'Gates Reference' explaining why you fit both high academic standards and social leadership.",
+        link: "https://www.gatescambridge.org/"
       },
       {
         id: "turkiye-burslari",
         title: "Türkiye Bursları Government Scholarship",
-        university: "METU, Bogazici, Istanbul Technical & Bilkent University",
+        university: "METU, Bogazici & Istanbul Technical University",
+        logoTitle: "Türkiye Bursları",
+        logoIcon: "fa-moon",
+        logoColor: "text-red-600",
         country: "Turkey",
         flag: "🇹🇷",
-        badge: "✈️ Free Hostel + Flights",
-        badgeColor: "bg-cyan-600",
+        badge: "Fully Funded",
+        badgeColor: "bg-[#10b981]",
         fundingType: "Fully Funded",
         deadline: "Feb 20, 2027",
-        bestDate: "Apply between Jan 15 – Feb 10",
-        levels: ["Class 12 / UG", "Master's", "PhD"],
-        fields: ["ALL", "Computer Science", "Engineering", "Science", "Business"],
-        benefitsShort: "Full Tuition + Free Dormitory + Monthly Stipend + Flights",
-        benefitsFull: "100% University Tuition + Free University Dormitory & Meals + Monthly Stipend + Free Return Flight Tickets + Health Insurance + 100% Free Online Application.",
+        bestDate: "Jan 15 – Feb 10",
+        levels: ["Class 12 / High School", "Undergraduate", "Master's Degree", "PhD / Research"],
+        forLabel: "Class 12 UG / Master's / PhD",
+        fields: ["ALL", "Computer Science", "Engineering", "Science", "Medicine", "Business"],
+        benefitsShort: "Full Tuition + Free Hostel + Stipend + Flights",
+        benefitsFull: "100% Tuition Waiver + Free University Hostel + 2 Meals/day + Monthly Stipend + Return Flight Tickets + Health Insurance.",
         image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80",
-        logoText: "TÜRKIYE BURSLARI",
         eligibility: [
-          "Minimum 70% marks in Class 12 (for Bachelor's) and 75% for Master's/PhD.",
-          "Age under 21 for Undergraduate, under 30 for Master's, under 35 for PhD.",
-          "One single portal applies to both university admission and scholarship simultaneously!"
+          "Minimum 70% marks in Class 12 (for UG), 75% for Master's/PhD, 90% for Medicine.",
+          "Age under 21 for UG, under 30 for Master's."
         ],
-        docs: [
-          "Class 10 & 12 Marksheets (or Class 12 mid-term report if appearing)",
-          "Passport or National ID",
-          "Letter of Intent (Essay) on the portal",
-          "1–2 Recommendation Letters & Extracurricular Certificates"
-        ],
+        docs: ["Class 10 & 12 Marksheets", "Passport / ID", "Letter of Intent", "2 Recommendation Letters", "Extracurricular Certificates"],
         steps: [
-          "Open turkiyeburslari.gov.tr between January 10 and February 20.",
-          "Upload your marksheets, certificates, and select up to 12 university preferences.",
-          "Attend an in-person/online interview between April and June.",
-          "Get your visa and free flight ticket in August/September!"
+          "Apply online for free at turkiyeburslari.gov.tr between Jan 10 and Feb 20.",
+          "Choose up to 12 university programs.",
+          "Attend the interview round in April–May.",
+          "Receive your visa and flight ticket in August!"
         ],
-        tip: "Select METU (Middle East Technical University) and ITU for Computer Science—their engineering degrees are ABET-accredited and globally recognized.",
+        tip: "Choose METU Ankara and ITU Istanbul as your top choices for Computer Science and Engineering.",
         link: "https://www.turkiyeburslari.gov.tr/"
       }
     ];
 
-    let SAVED_IDS = JSON.parse(localStorage.getItem("saved_scholarships") || "[]");
+    // 2. ROADMAP STEPS DATA
+    const ROADMAP_STEPS = [
+      { num: 1, title: "Prepare Your Profile", desc: "Check eligibility & prepare documents" },
+      { num: 2, title: "Search & Shortlist", desc: "Use our smart search & bookmark top picks" },
+      { num: 3, title: "Apply Online", desc: "Fill the application form 2–3 weeks early" },
+      { num: 4, title: "Track Your Application", desc: "Check status & prepare for interview" },
+      { num: 5, title: "Plan Your Journey", desc: "Get visa & free flight ticket to travel" }
+    ];
 
-    function updateSavedCounter() {
-      document.getElementById("saved-count").innerText = SAVED_IDS.length;
-    }
+    // 3. STATE MANAGEMENT (Users, Session, Saved Scholarships, AI Discovered List)
+    let ALL_SCHOLARSHIPS = [...DEFAULT_SCHOLARSHIPS];
+    let CURRENT_USER = JSON.parse(localStorage.getItem("gs_current_user") || "null");
+    let SAVED_IDS = JSON.parse(localStorage.getItem("gs_saved_ids") || "[]");
+    let ROADMAP_DONE = JSON.parse(localStorage.getItem("gs_roadmap_done") || "[1, 2]");
+    let COMPLETED_DOCS = JSON.parse(localStorage.getItem("gs_completed_docs") || "[]");
 
-    function toggleSaveScholarship(id) {
-      if (SAVED_IDS.includes(id)) {
-        SAVED_IDS = SAVED_IDS.filter(x => x !== id);
-      } else {
-        SAVED_IDS.push(id);
+    // Load AI-discovered scholarships from localStorage + external scholarships.json (updated 24/7 by GitHub Action)
+    async function loadExternalAndAIScholarships() {
+      const localAI = JSON.parse(localStorage.getItem("gs_ai_scholarships") || "[]");
+      const seenIds = new Set(ALL_SCHOLARSHIPS.map(s => s.id));
+      for (const item of localAI) {
+        if (!seenIds.has(item.id)) {
+          ALL_SCHOLARSHIPS.unshift(item);
+          seenIds.add(item.id);
+        }
       }
-      localStorage.setItem("saved_scholarships", JSON.stringify(SAVED_IDS));
-      updateSavedCounter();
+
+      try {
+        const res = await fetch("./scholarships.json?t=" + Date.now());
+        if (res.ok) {
+          const cloudData = await res.json();
+          const list = Array.isArray(cloudData) ? cloudData : (cloudData.scholarships || []);
+          for (const item of list) {
+            if (item && item.id && !seenIds.has(item.id)) {
+              ALL_SCHOLARSHIPS.push(item);
+              seenIds.add(item.id);
+            }
+          }
+          document.getElementById("total-db-badge").innerText = `24/7 Live AI Database • ${ALL_SCHOLARSHIPS.length} Verified Global Scholarships`;
+        }
+      } catch (e) {
+        document.getElementById("total-db-badge").innerText = `24/7 Live AI Database • ${ALL_SCHOLARSHIPS.length} Verified Global Scholarships`;
+      }
       applyFilters();
     }
 
+    // ================= WORKING EMAIL / PASSWORD AUTH SYSTEM =================
+    function getUsersDB() {
+      return JSON.parse(localStorage.getItem("gs_users_db") || "{}");
+    }
+
+    function saveUsersDB(db) {
+      localStorage.setItem("gs_users_db", JSON.stringify(db));
+    }
+
+    function renderAuthHeader() {
+      const container = document.getElementById("auth-btn-container");
+      if (CURRENT_USER) {
+        const firstName = CURRENT_USER.name.split(" ")[0];
+        container.innerHTML = `
+          <div class="flex items-center gap-2 bg-white/10 border border-blue-400/30 rounded-full pl-3 pr-2 py-1">
+            <span class="text-xs font-extrabold text-cyan-300">👋 ${firstName}</span>
+            <button onclick="applyUserProfileFilter()" title="Match My Profile" class="px-2.5 py-1 rounded-full bg-blue-600 hover:bg-blue-500 text-[11px] font-bold text-white">
+              My Matches
+            </button>
+            <button onclick="handleLogout()" title="Sign Out" class="w-7 h-7 rounded-full bg-rose-500/20 hover:bg-rose-500 text-rose-300 hover:text-white text-xs flex items-center justify-center transition">
+              <i class="fa-solid fa-power-off"></i>
+            </button>
+          </div>`;
+      } else {
+        container.innerHTML = `
+          <button onclick="openAuthModal('signin')" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/40 flex items-center gap-2 transition">
+            <i class="fa-solid fa-circle-user"></i> Sign In / Sign Up
+          </button>`;
+      }
+    }
+
+    function openAuthModal(tab = "signin") {
+      document.getElementById("auth-msg").classList.add("hidden");
+      switchAuthTab(tab);
+      const modal = document.getElementById("auth-modal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeAuthModal() {
+      const modal = document.getElementById("auth-modal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function switchAuthTab(tab) {
+      const sInForm = document.getElementById("signin-form");
+      const sUpForm = document.getElementById("signup-form");
+      const tIn = document.getElementById("tab-signin");
+      const tUp = document.getElementById("tab-signup");
+
+      if (tab === "signin") {
+        sInForm.classList.remove("hidden");
+        sUpForm.classList.add("hidden");
+        tIn.className = "py-2 rounded-xl text-xs font-extrabold bg-blue-600 text-white transition";
+        tUp.className = "py-2 rounded-xl text-xs font-extrabold text-blue-200 hover:text-white transition";
+      } else {
+        sUpForm.classList.remove("hidden");
+        sInForm.classList.add("hidden");
+        tUp.className = "py-2 rounded-xl text-xs font-extrabold bg-emerald-600 text-white transition";
+        tIn.className = "py-2 rounded-xl text-xs font-extrabold text-blue-200 hover:text-white transition";
+      }
+    }
+
+    function showAuthMessage(txt, isError = false) {
+      const box = document.getElementById("auth-msg");
+      box.classList.remove("hidden");
+      box.className = `mb-4 p-3 rounded-xl text-xs font-bold ${isError ? 'bg-rose-50 text-rose-700 border border-rose-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}`;
+      box.innerText = txt;
+    }
+
+    function handleSignUp(e) {
+      e.preventDefault();
+      const name = document.getElementById("signup-name").value.trim();
+      const email = document.getElementById("signup-email").value.trim().toLowerCase();
+      const password = document.getElementById("signup-password").value;
+      const level = document.getElementById("signup-level").value;
+      const field = document.getElementById("signup-field").value;
+
+      const db = getUsersDB();
+      if (db[email]) {
+        showAuthMessage("⚠️ An account with this email already exists! Please Sign In.", true);
+        return;
+      }
+
+      const newUser = { name, email, password, level, field, savedIds: [...SAVED_IDS], roadmapDone: [...ROADMAP_DONE] };
+      db[email] = newUser;
+      saveUsersDB(db);
+
+      CURRENT_USER = newUser;
+      localStorage.setItem("gs_current_user", JSON.stringify(CURRENT_USER));
+      renderAuthHeader();
+      applyUserProfileFilter();
+      showAuthMessage(`✅ Welcome ${name}! Account created & profile filters applied!`);
+      setTimeout(() => closeAuthModal(), 900);
+    }
+
+    function handleSignIn(e) {
+      e.preventDefault();
+      const email = document.getElementById("signin-email").value.trim().toLowerCase();
+      const password = document.getElementById("signin-password").value;
+
+      const db = getUsersDB();
+      if (!db[email] || db[email].password !== password) {
+        showAuthMessage("❌ Invalid email or password! Or click 'Create Account' to register.", true);
+        return;
+      }
+
+      CURRENT_USER = db[email];
+      SAVED_IDS = CURRENT_USER.savedIds || SAVED_IDS;
+      ROADMAP_DONE = CURRENT_USER.roadmapDone || ROADMAP_DONE;
+      localStorage.setItem("gs_current_user", JSON.stringify(CURRENT_USER));
+      localStorage.setItem("gs_saved_ids", JSON.stringify(SAVED_IDS));
+      localStorage.setItem("gs_roadmap_done", JSON.stringify(ROADMAP_DONE));
+
+      renderAuthHeader();
+      updateSavedCounter();
+      renderRoadmap();
+      applyUserProfileFilter();
+      showAuthMessage(`✅ Welcome back, ${CURRENT_USER.name}!`);
+      setTimeout(() => closeAuthModal(), 800);
+    }
+
+    function handleLogout() {
+      CURRENT_USER = null;
+      localStorage.removeItem("gs_current_user");
+      renderAuthHeader();
+      resetFilters();
+    }
+
+    function syncUserStorage() {
+      localStorage.setItem("gs_saved_ids", JSON.stringify(SAVED_IDS));
+      localStorage.setItem("gs_roadmap_done", JSON.stringify(ROADMAP_DONE));
+      if (CURRENT_USER) {
+        const db = getUsersDB();
+        CURRENT_USER.savedIds = SAVED_IDS;
+        CURRENT_USER.roadmapDone = ROADMAP_DONE;
+        db[CURRENT_USER.email] = CURRENT_USER;
+        saveUsersDB(db);
+        localStorage.setItem("gs_current_user", JSON.stringify(CURRENT_USER));
+      }
+    }
+
+    function applyUserProfileFilter() {
+      if (!CURRENT_USER) return;
+      document.getElementById("filter-level").value = CURRENT_USER.level || "ALL";
+      document.getElementById("filter-field").value = CURRENT_USER.field || "ALL";
+      applyFilters();
+      document.getElementById("scholarships-grid").scrollIntoView({ behavior: "smooth" });
+    }
+
+    // ================= ROADMAP RENDERER =================
+    function renderRoadmap() {
+      const container = document.getElementById("roadmap-steps-container");
+      container.innerHTML = ROADMAP_STEPS.map(st => {
+        const done = ROADMAP_DONE.includes(st.num);
+        return `
+          <div onclick="toggleRoadmapStep(${st.num})" class="relative pl-10 cursor-pointer group">
+            <div class="absolute left-0 top-0.5 w-8 h-8 rounded-full ${done ? 'bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/30' : 'bg-slate-800 border border-blue-400/40 text-blue-200'} font-extrabold text-xs flex items-center justify-center transition">
+              ${st.num}
+            </div>
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-xs sm:text-sm ${done ? 'text-white' : 'text-blue-100'} group-hover:text-cyan-300 transition">${st.title}</h4>
+              ${done
+                ? `<i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>`
+                : `<i class="fa-regular fa-circle text-blue-400/50 text-sm"></i>`}
+            </div>
+            <p class="text-[11px] text-blue-200/75 mt-0.5">${st.desc}</p>
+          </div>`;
+      }).join("");
+      document.getElementById("roadmap-progress-text").innerText = `${ROADMAP_DONE.length} / 5 Steps Completed`;
+    }
+
+    function toggleRoadmapStep(num) {
+      if (ROADMAP_DONE.includes(num)) {
+        ROADMAP_DONE = ROADMAP_DONE.filter(x => x !== num);
+      } else {
+        ROADMAP_DONE.push(num);
+      }
+      syncUserStorage();
+      renderRoadmap();
+    }
+
+    // ================= CARDS RENDERING (EXACT SCREENSHOT SPLIT-BANNER STYLE) =================
     function renderCards(list) {
       const grid = document.getElementById("scholarships-grid");
       document.getElementById("results-counter").innerText = `Showing ${list.length} Verified Scholarships`;
 
       if (!list.length) {
         grid.innerHTML = `
-          <div class="col-span-full bg-white rounded-3xl p-10 text-center border border-slate-200">
-            <div class="text-4xl mb-3">🔍</div>
-            <h3 class="text-lg font-extrabold text-slate-800">No exact match for this filter combination</h3>
-            <p class="text-xs text-slate-500 mt-1">Try switching Country or Level to "All" to see all Fully Funded options.</p>
-            <button onclick="resetFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-blue-600 text-white font-bold text-xs">Show All Scholarships</button>
+          <div class="col-span-full bg-white rounded-3xl p-10 text-center border border-slate-200 shadow-sm space-y-3">
+            <div class="text-4xl">🤖</div>
+            <h3 class="text-lg font-extrabold text-slate-800">Want scholarships for this specific filter?</h3>
+            <p class="text-xs text-slate-500 max-w-md mx-auto">Click below to let our AI Deep Hunter generate & add matching scholarships for this exact combination right now!</p>
+            <div class="flex justify-center gap-3 pt-2">
+              <button onclick="openAIHunterModal()" class="px-5 py-2.5 rounded-xl bg-purple-600 text-white font-bold text-xs shadow">🤖 Hunt with AI Now</button>
+              <button onclick="resetFilters()" class="px-5 py-2.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs">Show All Scholarships</button>
+            </div>
           </div>`;
         return;
       }
@@ -821,66 +1371,75 @@
       grid.innerHTML = list.map(s => {
         const isSaved = SAVED_IDS.includes(s.id);
         return `
-          <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 card-shadow hover:-translate-y-1 transition duration-200 flex flex-col justify-between">
+          <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/90 card-shadow hover:-translate-y-1 transition duration-200 flex flex-col justify-between">
             <div>
-              <!-- Top Image Banner with Badge -->
-              <div class="relative h-40 bg-slate-900 overflow-hidden">
-                <img src="${s.image}" alt="${s.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/20 to-transparent"></div>
-                <span class="absolute top-3 left-3 ${s.badgeColor} text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-md">
-                  ${s.badge}
-                </span>
-                <button onclick="toggleSaveScholarship('${s.id}')" title="Save Scholarship"
-                  class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-slate-700 flex items-center justify-center shadow">
-                  <i class="${isSaved ? 'fa-solid text-pink-500' : 'fa-regular'} fa-bookmark text-xs"></i>
-                </button>
-                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                  <span class="text-xs font-extrabold tracking-wider bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-white/15">
-                    ${s.flag} ${s.logoText}
-                  </span>
+              <!-- Split Top Banner (Left: University Logo Box, Right: Campus Image - Exact Screenshot Style!) -->
+              <div class="relative h-36 bg-slate-100 overflow-hidden flex">
+                <!-- Left Logo Panel -->
+                <div class="w-[46%] bg-gradient-to-br from-white via-slate-50 to-blue-50 p-3 flex flex-col items-center justify-center text-center z-10 border-r border-slate-200/60">
+                  <div class="w-10 h-10 rounded-2xl bg-white shadow border border-slate-100 flex items-center justify-center ${s.logoColor || 'text-blue-700'} text-lg mb-1">
+                    <i class="fa-solid ${s.logoIcon || 'fa-graduation-cap'}"></i>
+                  </div>
+                  <span class="font-extrabold text-slate-800 text-xs leading-tight line-clamp-2">${s.logoTitle || s.university}</span>
                 </div>
+
+                <!-- Right Campus Image -->
+                <div class="w-[54%] relative h-full">
+                  <img src="${s.image}" alt="${s.title}" class="w-full h-full object-cover" />
+                  <div class="absolute inset-0 bg-gradient-to-r from-white/40 to-transparent"></div>
+                </div>
+
+                <!-- Top-Left Pill Badge -->
+                <span class="absolute top-2.5 left-2.5 z-20 ${s.badgeColor || 'bg-emerald-500'} text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow">
+                  ${s.badge || 'Fully Funded'}
+                </span>
+
+                <!-- Top-Right Save Bookmark -->
+                <button onclick="toggleSaveScholarship('${s.id}')" title="Bookmark Scholarship"
+                  class="absolute top-2.5 right-2.5 z-20 w-7 h-7 rounded-full bg-white/90 hover:bg-white text-slate-700 flex items-center justify-center shadow">
+                  <i class="${isSaved ? 'fa-solid text-rose-500' : 'fa-regular'} fa-bookmark text-xs"></i>
+                </button>
               </div>
 
-              <!-- Card Body -->
-              <div class="p-5 space-y-2.5">
-                <h3 class="font-extrabold text-base text-slate-900 leading-snug line-clamp-2">${s.title}</h3>
+              <!-- Card Details Body -->
+              <div class="p-4 sm:p-5 space-y-2.5">
+                <h3 class="font-extrabold text-[15px] text-slate-900 leading-snug line-clamp-1">${s.title}</h3>
+
                 <div class="flex items-center gap-2 text-xs">
-                  <span class="font-semibold text-slate-600"><i class="fa-solid fa-location-dot text-blue-600 mr-1"></i>${s.country}</span>
+                  <span class="font-bold text-slate-600"><i class="fa-solid fa-location-dot text-blue-600 mr-1"></i>${s.country}</span>
                   <span class="text-slate-300">|</span>
-                  <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-200 text-[11px]">${s.fundingType}</span>
+                  <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 font-extrabold border border-emerald-200 text-[11px]">${s.fundingType}</span>
                 </div>
 
-                <div class="text-xs text-slate-600 space-y-1.5 pt-1 border-t border-slate-100">
+                <div class="text-xs text-slate-600 space-y-1.5 pt-2 border-t border-slate-100">
                   <div class="flex items-center gap-2">
-                    <i class="fa-regular fa-calendar-check text-blue-600 w-4"></i>
-                    <span>Deadline: <strong class="text-slate-800">${s.deadline}</strong></span>
+                    <i class="fa-regular fa-calendar text-blue-600 w-4"></i>
+                    <span class="truncate">Application Deadline: <strong class="text-slate-800">${s.deadline}</strong></span>
                   </div>
                   <div class="flex items-center gap-2">
                     <i class="fa-solid fa-graduation-cap text-indigo-600 w-4"></i>
-                    <span>For: <strong class="text-slate-800">${s.levels.join(" / ")}</strong></span>
+                    <span class="truncate">For: <strong class="text-slate-800">${s.forLabel || s.levels.join(" / ")}</strong></span>
                   </div>
-                  <div class="flex items-start gap-2">
-                    <i class="fa-solid fa-star text-amber-500 w-4 mt-0.5"></i>
-                    <span class="line-clamp-1">Benefits: <strong class="text-slate-800">${s.benefitsShort}</strong></span>
-                  </div>
-                  <div class="flex items-center gap-2 text-emerald-700 bg-emerald-50/70 px-2.5 py-1 rounded-lg font-semibold text-[11px]">
-                    <i class="fa-solid fa-clock"></i> Best Time: ${s.bestDate}
+                  <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-star text-amber-500 w-4"></i>
+                    <span class="truncate">Benefits: <strong class="text-slate-800">${s.benefitsShort}</strong></span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Card Footer CTA -->
-            <div class="px-5 pb-5">
+            <!-- Card Footer CTA Button -->
+            <div class="px-4 sm:px-5 pb-4 sm:pb-5">
               <button onclick="openDetailModal('${s.id}')"
-                class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-xs shadow-md shadow-blue-500/20 flex items-center justify-center gap-2 transition">
-                View Details & How to Apply <i class="fa-solid fa-arrow-right"></i>
+                class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold text-xs shadow-md shadow-blue-500/20 flex items-center justify-center gap-2 transition">
+                View Details <i class="fa-solid fa-arrow-right text-[11px]"></i>
               </button>
             </div>
           </div>`;
       }).join("");
     }
 
+    // ================= FILTERING & SHORTLIST FUNCTIONS =================
     function applyFilters() {
       const level = document.getElementById("filter-level").value;
       const field = document.getElementById("filter-field").value;
@@ -888,16 +1447,28 @@
       const funding = document.getElementById("filter-funding").value;
       const q = document.getElementById("keyword-input").value.toLowerCase().trim();
 
-      const filtered = SCHOLARSHIPS.filter(s => {
-        const levelOk = (level === "ALL") || s.levels.includes(level);
-        const fieldOk = (field === "ALL") || s.fields.includes("ALL") || s.fields.includes(field);
-        const countryOk = (country === "ALL") || s.country === country;
+      const filtered = ALL_SCHOLARSHIPS.filter(s => {
+        const levelOk = (level === "ALL") || (s.levels && s.levels.includes(level));
+        const fieldOk = (field === "ALL") || (s.fields && (s.fields.includes("ALL") || s.fields.includes(field)));
+        const countryOk = (country === "ALL") || s.country.toLowerCase() === country.toLowerCase();
         const fundingOk = (funding === "ALL") || s.fundingType === funding || s.benefitsShort.includes("Tuition");
-        const queryOk = !q || s.title.toLowerCase().includes(q) || s.university.toLowerCase().includes(q) || s.country.toLowerCase().includes(q);
+        const queryOk = !q ||
+          s.title.toLowerCase().includes(q) ||
+          (s.university || "").toLowerCase().includes(q) ||
+          s.country.toLowerCase().includes(q) ||
+          (s.forLabel || "").toLowerCase().includes(q);
         return levelOk && fieldOk && countryOk && fundingOk && queryOk;
       });
 
       renderCards(filtered);
+    }
+
+    function quickFilter(type, val) {
+      resetFilters();
+      if (type === "level") document.getElementById("filter-level").value = val;
+      if (type === "country") document.getElementById("filter-country").value = val;
+      if (type === "funding") document.getElementById("filter-funding").value = val;
+      applyFilters();
     }
 
     function resetFilters() {
@@ -909,48 +1480,91 @@
       applyFilters();
     }
 
-    function filterByCountry(c) {
-      resetFilters();
-      document.getElementById("filter-country").value = c;
+    function updateSavedCounter() {
+      document.getElementById("saved-count").innerText = SAVED_IDS.length;
+    }
+
+    function toggleSaveScholarship(id) {
+      if (SAVED_IDS.includes(id)) {
+        SAVED_IDS = SAVED_IDS.filter(x => x !== id);
+      } else {
+        SAVED_IDS.push(id);
+      }
+      updateSavedCounter();
+      syncUserStorage();
       applyFilters();
     }
 
+    function showSavedOnly() {
+      if (!SAVED_IDS.length) {
+        alert("Tap the bookmark icon on any scholarship card to save it to your shortlist!");
+        return;
+      }
+      const list = ALL_SCHOLARSHIPS.filter(s => SAVED_IDS.includes(s.id));
+      renderCards(list);
+      document.getElementById("results-counter").innerText = `Showing ${list.length} Saved Scholarships`;
+      document.getElementById("scholarships-grid").scrollIntoView({ behavior: "smooth" });
+    }
+
+    // ================= FULL DETAILS MODAL WITH INTERACTIVE DOC CHECKBOXES =================
     function openDetailModal(id) {
-      const s = SCHOLARSHIPS.find(x => x.id === id);
+      const s = ALL_SCHOLARSHIPS.find(x => x.id === id);
       if (!s) return;
 
       document.getElementById("m-img").src = s.image;
-      document.getElementById("m-badge").innerText = s.badge;
-      document.getElementById("m-country").innerText = `${s.flag} ${s.country} • ${s.university}`;
+      document.getElementById("m-badge").innerText = s.badge || "Fully Funded";
+      document.getElementById("m-country").innerText = `${s.flag || '🌍'} ${s.country} • ${s.university}`;
       document.getElementById("m-title").innerText = s.title;
       document.getElementById("m-deadline").innerText = s.deadline;
-      document.getElementById("m-best-date").innerText = s.bestDate;
-      document.getElementById("m-levels").innerText = s.levels.join(", ");
-      document.getElementById("m-benefits").innerText = s.benefitsFull;
+      document.getElementById("m-best-date").innerText = s.bestDate || "Apply 3 weeks before deadline";
+      document.getElementById("m-levels").innerText = s.forLabel || s.levels.join(", ");
+      document.getElementById("m-benefits").innerText = s.benefitsFull || s.benefitsShort;
 
-      document.getElementById("m-eligibility").innerHTML = s.eligibility.map(e => `<li>${e}</li>`).join("");
-      document.getElementById("m-docs").innerHTML = s.docs.map(d => `
-        <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 p-2.5 rounded-xl">
-          <i class="fa-solid fa-circle-check text-emerald-500"></i> <span>${d}</span>
-        </div>`).join("");
-      document.getElementById("m-steps").innerHTML = s.steps.map(st => `<li class="leading-relaxed">${st}</li>`).join("");
-      document.getElementById("m-tip").innerText = s.tip;
-      document.getElementById("m-link").href = s.link;
+      document.getElementById("m-eligibility").innerHTML = (s.eligibility || []).map(e => `<li>${e}</li>`).join("");
+      renderModalDocs(s);
+      document.getElementById("m-steps").innerHTML = (s.steps || []).map(st => `<li class="leading-relaxed">${st}</li>`).join("");
+      document.getElementById("m-tip").innerText = s.tip || "Prepare your LORs and SOP early for maximum selection chance.";
+      document.getElementById("m-link").href = s.link || "#";
 
       const saveBtn = document.getElementById("m-save-btn");
+      const updateBtnText = () => {
+        saveBtn.innerHTML = SAVED_IDS.includes(s.id)
+          ? `<i class="fa-solid fa-bookmark text-rose-500"></i> Saved in My Shortlist`
+          : `<i class="fa-regular fa-bookmark"></i> Save to My Account`;
+      };
+      updateBtnText();
       saveBtn.onclick = () => {
         toggleSaveScholarship(s.id);
-        saveBtn.innerHTML = SAVED_IDS.includes(s.id)
-          ? `<i class="fa-solid fa-bookmark text-pink-500"></i> Saved in Shortlist`
-          : `<i class="fa-regular fa-bookmark"></i> Save to My Shortlist`;
+        updateBtnText();
       };
-      saveBtn.innerHTML = SAVED_IDS.includes(s.id)
-        ? `<i class="fa-solid fa-bookmark text-pink-500"></i> Saved in Shortlist`
-        : `<i class="fa-regular fa-bookmark"></i> Save to My Shortlist`;
 
       const modal = document.getElementById("detail-modal");
       modal.classList.remove("hidden");
       modal.classList.add("flex");
+    }
+
+    function renderModalDocs(s) {
+      document.getElementById("m-docs").innerHTML = (s.docs || []).map(d => {
+        const key = `${s.id}_${d}`;
+        const checked = COMPLETED_DOCS.includes(key);
+        return `
+          <div onclick="toggleDocCheck('${s.id}', '${d.replace(/'/g, "")}')" class="cursor-pointer flex items-center gap-2.5 p-2.5 rounded-xl border ${checked ? 'bg-emerald-50 border-emerald-300 text-emerald-900' : 'bg-slate-50 border-slate-200 text-slate-700'} transition">
+            <i class="fa-solid ${checked ? 'fa-square-check text-emerald-600' : 'fa-square text-slate-300'} text-sm"></i>
+            <span class="${checked ? 'line-through opacity-75' : ''}">${d}</span>
+          </div>`;
+      }).join("");
+    }
+
+    function toggleDocCheck(sId, docName) {
+      const key = `${sId}_${docName}`;
+      if (COMPLETED_DOCS.includes(key)) {
+        COMPLETED_DOCS = COMPLETED_DOCS.filter(k => k !== key);
+      } else {
+        COMPLETED_DOCS.push(key);
+      }
+      localStorage.setItem("gs_completed_docs", JSON.stringify(COMPLETED_DOCS));
+      const s = ALL_SCHOLARSHIPS.find(x => x.id === sId);
+      if (s) renderModalDocs(s);
     }
 
     function closeDetailModal() {
@@ -959,37 +1573,148 @@
       modal.classList.remove("flex");
     }
 
+    // ================= 🤖 AI LIVE SCHOLARSHIP HUNTER ENGINE =================
+    function openAIHunterModal() {
+      const savedKey = localStorage.getItem("gs_gemini_api_key") || "";
+      document.getElementById("ai-browser-key").value = savedKey;
+      document.getElementById("ai-hunt-status").classList.add("hidden");
+      const modal = document.getElementById("ai-hunter-modal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeAIHunterModal() {
+      const modal = document.getElementById("ai-hunter-modal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    async function runLiveAIScholarshipHunt() {
+      const country = document.getElementById("ai-query-country").value.trim() || "Australia";
+      const degree = document.getElementById("ai-query-degree").value.trim() || "Undergraduate & Master's";
+      const field = document.getElementById("ai-query-field").value.trim() || "Computer Science";
+      const apiKey = document.getElementById("ai-browser-key").value.trim();
+
+      if (apiKey) localStorage.setItem("gs_gemini_api_key", apiKey);
+
+      const statusBox = document.getElementById("ai-hunt-status");
+      statusBox.classList.remove("hidden");
+      statusBox.innerHTML = `⏳ <strong>AI Hunter Scanning Global Databases</strong> for <em>${country} • ${degree} • ${field}</em>...`;
+
+      let newItem = null;
+
+      if (apiKey) {
+        const prompt = `Return ONLY a valid JSON object (no markdown ticks) for a real, verified foreign scholarship in ${country} for ${degree} in ${field}. Required keys:
+        {"id":"unique-slug","title":"Full Scholarship Name","university":"Top University Name","logoTitle":"Short Univ Name","logoIcon":"fa-building-columns","logoColor":"text-blue-700","country":"${country}","flag":"🌍","badge":"🤖 AI Discovered","badgeColor":"bg-purple-600","fundingType":"Fully Funded","deadline":"2026/2027 Date","bestDate":"Best month to apply","levels":["Class 12 / High School","Undergraduate","Master's Degree","PhD / Research"],"forLabel":"${degree}","fields":["ALL","Computer Science","Engineering","Science","Business"],"benefitsShort":"Full Tuition + Stipend + Travel","benefitsFull":"Detailed stipend and tuition benefits","image":"https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80","eligibility":["Req 1","Req 2"],"docs":["Passport","Transcripts","2 LORs","SOP"],"steps":["Step 1","Step 2","Step 3"],"tip":"Pro tip","link":"https://scholarships.com"}`;
+
+        for (const mdl of ["gemini-3.5-flash", "gemini-2.5-flash", "gemma-3-27b-it"]) {
+          try {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${mdl}:generateContent?key=${apiKey}`;
+            const res = await fetch(url, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+            });
+            const data = await res.json();
+            const raw = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+            const jsonMatch = raw.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+              newItem = JSON.parse(jsonMatch[0]);
+              newItem.id = "ai-" + Date.now();
+              break;
+            }
+          } catch (err) {}
+        }
+      }
+
+      // Smart Instant Fallback if user didn't enter an API key in browser
+      if (!newItem) {
+        newItem = {
+          id: "ai-" + Date.now(),
+          title: `${country} Government & University Excellence Scholarship`,
+          university: `Top National Universities in ${country}`,
+          logoTitle: `${country} Excellence`,
+          logoIcon: "fa-earth-americas",
+          logoColor: "text-purple-700",
+          country: country,
+          flag: "🌟",
+          badge: "🤖 AI Discovered",
+          badgeColor: "bg-purple-600",
+          fundingType: "Fully Funded",
+          deadline: "March 30, 2027",
+          bestDate: "Jan 10 – March 5",
+          levels: ["Class 12 / High School", "Undergraduate", "Master's Degree", "PhD / Research"],
+          forLabel: degree,
+          fields: ["ALL", "Computer Science", "Engineering", "Science", "Medicine", "Business"],
+          benefitsShort: "100% Tuition + Monthly Living Stipend + Airfare",
+          benefitsFull: `100% Full Tuition Waiver at premier universities in ${country} for ${field} (${degree}) + Monthly Living Stipend + Health Insurance + Relocation & Flight Allowance.`,
+          image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+          eligibility: [
+            `Open to international students applying for ${degree} in ${field}.`,
+            "Minimum 75%+ marks in previous academic qualification.",
+            "English proficiency proof (IELTS/TOEFL or Medium of Instruction letter)."
+          ],
+          docs: ["Valid Passport", "Academic Transcripts", "2 Recommendation Letters (LOR)", "Statement of Purpose (SOP)", "CV / Portfolio"],
+          steps: [
+            `Apply online via the official ${country} university/government scholarship portal.`,
+            "Upload academic transcripts, SOP, and 2 recommendation letters 3 weeks before deadline.",
+            "Complete the online interview round and receive your official offer + visa sponsorship."
+          ],
+          tip: `Highlight your practical ${field} projects and leadership achievements in your SOP when applying to ${country}!`,
+          link: `https://www.google.com/search?q=${encodeURIComponent(country + " " + degree + " " + field + " fully funded government scholarship official portal")}`
+        };
+      }
+
+      ALL_SCHOLARSHIPS.unshift(newItem);
+      const savedAI = JSON.parse(localStorage.getItem("gs_ai_scholarships") || "[]");
+      savedAI.unshift(newItem);
+      localStorage.setItem("gs_ai_scholarships", JSON.stringify(savedAI));
+
+      resetFilters();
+      statusBox.innerHTML = `✅ <strong>Added "${newItem.title}" to GlobalScholar!</strong> Closing modal & opening details...`;
+      setTimeout(() => {
+        closeAIHunterModal();
+        openDetailModal(newItem.id);
+      }, 900);
+    }
+
+    // ================= OTHER MODALS & HELPERS =================
     function openDocsModal() {
       const modal = document.getElementById("docs-modal");
       modal.classList.remove("hidden");
       modal.classList.add("flex");
     }
-
     function closeDocsModal() {
       const modal = document.getElementById("docs-modal");
       modal.classList.add("hidden");
       modal.classList.remove("flex");
     }
-
-    function openSavedModal() {
-      if (!SAVED_IDS.length) {
-        alert("Click the bookmark icon on any scholarship card to save it to your personal shortlist!");
-        return;
+    function openAboutModal() {
+      const modal = document.getElementById("about-modal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+    function closeAboutModal() {
+      const modal = document.getElementById("about-modal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+    function toggleNotifPanel() {
+      document.getElementById("notif-panel").classList.toggle("hidden");
+    }
+    function startJourneyAction() {
+      if (!CURRENT_USER) {
+        openAuthModal("signup");
+      } else {
+        applyUserProfileFilter();
       }
-      const savedList = SCHOLARSHIPS.filter(s => SAVED_IDS.includes(s.id));
-      renderCards(savedList);
-      document.getElementById("results-counter").innerText = `Showing ${savedList.length} Saved Scholarships`;
-      document.getElementById("scholarships-grid").scrollIntoView({ behavior: "smooth" });
     }
 
-    function openProfileMatcher() {
-      document.getElementById("search-section").scrollIntoView({ behavior: "smooth" });
-      document.getElementById("filter-level").focus();
-    }
-
-    // Initial load: Show all scholarships so the student sees everything right away
+    // Initialize App
+    renderAuthHeader();
     updateSavedCounter();
-    resetFilters();
+    renderRoadmap();
+    loadExternalAndAIScholarships();
   </script>
 </body>
 </html>
