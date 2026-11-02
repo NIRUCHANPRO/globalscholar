@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-02 04:11 UTC",
+  "last_updated": "2026-11-02 21:22 UTC",
   "scholarships": [
     {
       "id": "eth-zurich-excellence-swiss-government-scholarship",
@@ -460,6 +460,168 @@
       ],
       "tip": "Focus heavily on the scholarship essay: articulate a clear, innovative vision for your intended research/thesis and connect it directly to solving real-world global engineering or society challenges.",
       "link": "https://www.tudelft.nl/en/education/practical-matters/scholarships/justus-louise-van-effen-excellence-scholarships"
+    },
+    {
+      "id": "stipendium-hungaricum-government-scholarship",
+      "title": "Stipendium Hungaricum Government Scholarship",
+      "university": "Top Partner Universities in Hungary",
+      "logoTitle": "Hungary Scholar",
+      "logoIcon": "fa-building-columns",
+      "logoColor": "text-indigo-700",
+      "country": "Hungary",
+      "flag": "🇭🇺",
+      "badge": "Fully Funded",
+      "badgeColor": "bg-[#10b981]",
+      "fundingType": "Fully Funded",
+      "deadline": "January 15, 2026",
+      "bestDate": "December 15, 2025 – January 5, 2026",
+      "levels": [
+        "Undergraduate",
+        "Master's Degree",
+        "PhD / Research"
+      ],
+      "forLabel": "UG / Master's / PhD",
+      "fields": [
+        "ALL",
+        "Computer Science",
+        "Engineering",
+        "Science",
+        "Medicine",
+        "Business"
+      ],
+      "benefitsShort": "Full Tuition + Monthly Stipend + Accommodation Allowance + Health Insurance",
+      "benefitsFull": "100% tuition-free education, monthly living stipend of HUF 43,700 (~€110) for Bachelor/Master level or HUF 140,000–180,000 (~€360–€460) for PhD students, free dormitory accommodation or housing allowance of HUF 40,000/month, and full health insurance coverage in Hungary.",
+      "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+      "eligibility": [
+        "Citizen of an eligible Sending Partner country (including India)",
+        "Must be at least 18 years old by August 31 of the application year",
+        "Strong academic performance in preceding qualifications",
+        "Must meet specific program language and academic requirements set by chosen Hungarian university"
+      ],
+      "docs": [
+        "Online Application Form via DreamApply portal",
+        "Motivation Letter",
+        "Proof of English Language Proficiency (IELTS/TOEFL or MOI certificate)",
+        "Academic Transcripts and School/Degree Certificates",
+        "Medical Certificate of good health",
+        "Copy of Passport"
+      ],
+      "steps": [
+        "Register and complete the online application on the Stipendium Hungaricum DreamApply portal.",
+        "Select up to 2 study programs at partner Hungarian universities.",
+        "Submit required nomination paperwork to the designated Sending Partner Authority in your home country (e.g., Ministry of Education in India) if applicable.",
+        "Complete online entrance exams or oral interviews conducted by the selected Hungarian universities."
+      ],
+      "tip": "Prepare thoroughly for university-specific online interviews or technical entry exams, and ensure you submit your application to both the Tempus Public Foundation portal and any required home-country nominating agency.",
+      "link": "https://stipendiumhungaricum.hu/"
+    },
+    {
+      "id": "khalifa-university-nyu-abu-dhabi-full-financial-support",
+      "title": "Khalifa University & NYU Abu Dhabi Full Financial Support",
+      "university": "Top Partner Universities in UAE",
+      "logoTitle": "UAE Scholar",
+      "logoIcon": "fa-building-columns",
+      "logoColor": "text-indigo-700",
+      "country": "UAE",
+      "flag": "🇦🇪",
+      "badge": "Fully Funded",
+      "badgeColor": "bg-[#10b981]",
+      "fundingType": "Fully Funded",
+      "deadline": "January 15, 2026",
+      "bestDate": "December 20, 2025",
+      "levels": [
+        "Class 12 / High School",
+        "Undergraduate",
+        "Master's Degree",
+        "PhD / Research"
+      ],
+      "forLabel": "Class 12 UG / Master's / PhD",
+      "fields": [
+        "ALL",
+        "Computer Science",
+        "Engineering",
+        "Science",
+        "Medicine",
+        "Business"
+      ],
+      "benefitsShort": "100% Tuition Waiver + AED 4,000–8,000 Monthly Stipend + Housing & Flights",
+      "benefitsFull": "Complete financial aid covering 100% tuition fees, monthly living stipend ranging from AED 4,000 to AED 8,000 based on level of study, fully furnished university accommodation, health insurance coverage, annual return flight tickets, and research grant allowances.",
+      "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+      "eligibility": [
+        "High academic record (minimum 85%+ in High School or GPA 3.5/4.0 in Undergraduate studies).",
+        "English language proficiency: IELTS minimum 6.5 or TOEFL iBT minimum 91.",
+        "Open to international students applying for full-time Undergraduate, Master's, or PhD programs.",
+        "Strong evidence of leadership, research potential, or outstanding extracurricular performance."
+      ],
+      "docs": [
+        "Official Academic Transcripts and Graduation Certificates",
+        "Proof of English Proficiency (IELTS / TOEFL)",
+        "Statement of Purpose (SOP) or Personal Essay",
+        "2 to 3 Academic Recommendation Letters",
+        "Copy of Valid Passport and Updated Resume/CV"
+      ],
+      "steps": [
+        "Choose your eligible academic program at Khalifa University or NYU Abu Dhabi.",
+        "Submit an online admission application through the respective university portal.",
+        "Opt-in for full financial assistance/scholarship funding within the application form.",
+        "Upload all required academic transcripts, test scores, and supporting documents.",
+        "Complete the candidate selection interview if shortlisted by the admissions board."
+      ],
+      "tip": "Emphasize your STEM achievements, coding projects, or community involvement in your SOP; both NYUAD and Khalifa University value holistic candidate profiles alongside top academic scores.",
+      "link": "https://www.ku.ac.ae/admissions"
+    },
+    {
+      "id": "taiwan-icdf-moe-government-scholarship",
+      "title": "Taiwan ICDF & MOE Government Scholarship",
+      "university": "Top Partner Universities in Taiwan",
+      "logoTitle": "Taiwan Scholar",
+      "logoIcon": "fa-building-columns",
+      "logoColor": "text-indigo-700",
+      "country": "Taiwan",
+      "flag": "🇹🇼",
+      "badge": "Fully Funded",
+      "badgeColor": "bg-[#10b981]",
+      "fundingType": "Fully Funded",
+      "deadline": "March 15, 2026 (ICDF) / March 31, 2026 (MOE)",
+      "bestDate": "Apply by February 25, 2026",
+      "levels": [
+        "Undergraduate",
+        "Master's Degree",
+        "PhD / Research"
+      ],
+      "forLabel": "UG / Master's / PhD",
+      "fields": [
+        "ALL",
+        "Computer Science",
+        "Engineering",
+        "Science",
+        "Medicine",
+        "Business"
+      ],
+      "benefitsShort": "Full Tuition + Monthly Stipend + Economy Flights",
+      "benefitsFull": "Covers 100% tuition fees, monthly living stipend ranging from NT$15,000 to NT$20,000 (~$500-$650 USD), student dormitory accommodation support, national health insurance, and round-trip economy class flights.",
+      "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+      "eligibility": [
+        "Must be a citizen of an eligible target country (including India) with strong academic performance",
+        "Must hold a high school diploma for Bachelor's, a Bachelor's degree for Master's, or a Master's degree for PhD",
+        "Must meet English proficiency requirements (IELTS/TOEFL) or Chinese proficiency (TOCFL) based on instruction language",
+        "Must not hold ROC (Taiwan) citizenship or overseas Chinese student status"
+      ],
+      "docs": [
+        "Completed online application form",
+        "Attested copy of highest degree certificate and official academic transcripts",
+        "Proof of English proficiency (IELTS/TOEFL) or TOCFL certificate",
+        "Two reference letters from academic or professional supervisors",
+        "Comprehensive Study Plan or Statement of Purpose (SOP)"
+      ],
+      "steps": [
+        "Submit university admission application to the partner university in Taiwan",
+        "Fill out the scholarship online portal (ICDF) or MOE application form provided by local TECC",
+        "Submit physical application dossier to the Taipei Economic and Cultural Center (TECC) in your home country",
+        "Participate in the shortlisting interview conducted by TECC / ICDF committee members"
+      ],
+      "tip": "Even if applying for English-medium degree programs, taking a basic TOCFL (Chinese Language) test or demonstrating basic Mandarin skills dramatically raises your interview score and selection probability at the TECC office.",
+      "link": "https://www.icdf.org.tw/wSite/np?ctNode=31561&mp=2"
     }
   ]
 }
