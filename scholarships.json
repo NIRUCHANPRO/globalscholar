@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-01 17:36 UTC",
+  "last_updated": "2026-11-02 04:11 UTC",
   "scholarships": [
     {
       "id": "eth-zurich-excellence-swiss-government-scholarship",
@@ -309,6 +309,157 @@
       ],
       "tip": "Apply for your university offer as early as December or January. Your scholarship essay must explicitly detail how your presence will foster educational and economic ties between India and Ireland.",
       "link": "https://hea.ie/policy/internationalisation/government-of-ireland-international-education-scholarships/"
+    },
+    {
+      "id": "manaaki-new-zealand-government-scholarship",
+      "title": "Manaaki New Zealand Government Scholarship",
+      "university": "Top Partner Universities in New Zealand",
+      "logoTitle": "New Zealand Scholar",
+      "logoIcon": "fa-building-columns",
+      "logoColor": "text-indigo-700",
+      "country": "New Zealand",
+      "flag": "🇳🇿",
+      "badge": "Fully Funded",
+      "badgeColor": "bg-[#10b981]",
+      "fundingType": "Fully Funded",
+      "deadline": "February 28, 2026",
+      "bestDate": "Submit before February 20, 2026",
+      "levels": [
+        "Undergraduate",
+        "Master's Degree",
+        "PhD / Research"
+      ],
+      "forLabel": "Undergraduate / Master's",
+      "fields": [
+        "Climate Change & Environment",
+        "Renewable Energy",
+        "Agriculture & Food Security",
+        "Governance",
+        "Public Health"
+      ],
+      "benefitsShort": "Full Tuition + NZD $531/week Stipend + Airfare",
+      "benefitsFull": "Covers 100% of tuition fees, a weekly living allowance of NZD 531, an establishment allowance of NZD 3,000, medical insurance, research funding for postgraduates, and round-trip economy flights.",
+      "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+      "eligibility": [
+        "Must be a citizen of an eligible partner country and meet age requirements",
+        "Minimum of 1 year full-time or 2 years part-time relevant work experience",
+        "Must meet academic and English language entry requirements for chosen course",
+        "Agreement to return to home country for at least 2 years after completing studies"
+      ],
+      "docs": [
+        "Academic Transcripts & Graduation Certificates",
+        "Valid Passport",
+        "Proof of English Language Proficiency (IELTS / TOEFL)",
+        "Work Experience Certificates / Employer Endorsement",
+        "Development Impact Essay & Statement of Purpose"
+      ],
+      "steps": [
+        "Check country eligibility and key development priority sectors on the official NZ Scholarship website.",
+        "Prepare supporting documents including work experience proofs and certified academic records.",
+        "Register and submit the online application on the Manaaki NZ scholarship portal.",
+        "Shortlisted candidates undergo selection testing, interviews, and official university enrollment."
+      ],
+      "tip": "Align your chosen subject directly with your country's specific strategic priorities and clearly demonstrate in your essays how your studies will directly contribute to local socio-economic development upon your return.",
+      "link": "https://www.nzscholarships.govt.nz"
+    },
+    {
+      "id": "swedish-institute-si-global-professionals-scholarship",
+      "title": "Swedish Institute (SI) Global Professionals Scholarship",
+      "university": "Participating Swedish Higher Education Institutions",
+      "logoTitle": "Sweden Scholar",
+      "logoIcon": "fa-building-columns",
+      "logoColor": "text-indigo-700",
+      "country": "Sweden",
+      "flag": "🇸🇪",
+      "badge": "Fully Funded",
+      "badgeColor": "bg-[#10b981]",
+      "fundingType": "Fully Funded",
+      "deadline": "February 26, 2026",
+      "bestDate": "February 5, 2026",
+      "levels": [
+        "Master's Degree"
+      ],
+      "forLabel": "Master's Degree",
+      "fields": [
+        "Computer Science",
+        "Engineering",
+        "Science",
+        "Business",
+        "Social Sciences",
+        "Environmental Studies"
+      ],
+      "benefitsShort": "Full Tuition + SEK 12,000/mo Stipend + Travel Grant",
+      "benefitsFull": "100% full tuition fee coverage paid directly to the Swedish university, a monthly living stipend of SEK 12,000, a one-time travel grant of SEK 15,000, health and accident insurance, and membership in the SI Network for Future Global Leaders.",
+      "image": "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=800&q=80",
+      "eligibility": [
+        "Citizen of an SI eligible country (including India, Bangladesh, Indonesia, Kenya, Nigeria, Philippines, etc.)",
+        "Minimum 3,000 hours of demonstrated work experience (full-time, part-time, or leadership roles in civil society)",
+        "Must apply for an eligible Master's program via University Admissions Sweden by mid-January deadline",
+        "Demonstrated leadership experience from current or previous employment or civil society organizations"
+      ],
+      "docs": [
+        "Completed SI Curriculum Vitae (CV) on official template",
+        "Two official SI Letters of Reference (at least one from an employer)",
+        "Proof of Work and Leadership Experience on official SI template",
+        "Copy of Valid Passport",
+        "Master's application confirmation number from universityadmissions.se"
+      ],
+      "steps": [
+        "Apply for up to 4 eligible Master's programmes at Swedish universities via universityadmissions.se by mid-January.",
+        "Pay the university application fee and obtain your 8-digit application number.",
+        "Prepare all required application documents strictly using the official Swedish Institute templates.",
+        "Submit your scholarship application through the SI online portal during the application window in February."
+      ],
+      "tip": "Strictly calculate your 3,000 work hours and ensure your referees use the mandatory SI templates without changing any formatting, as unformatted submissions are instantly disqualified.",
+      "link": "https://si.se/en/apply/scholarships/swedish-institute-scholarships-for-global-professionals/"
+    },
+    {
+      "id": "nl-scholarship-tu-delft-justus-louise-van-effen-excellence",
+      "title": "NL Scholarship & TU Delft Justus & Louise van Effen Excellence",
+      "university": "Delft University of Technology",
+      "logoTitle": "Netherlands Scholar",
+      "logoIcon": "fa-building-columns",
+      "logoColor": "text-indigo-700",
+      "country": "Netherlands",
+      "flag": "🇳🇱",
+      "badge": "Fully Funded",
+      "badgeColor": "bg-[#10b981]",
+      "fundingType": "Fully Funded",
+      "deadline": "December 1, 2026",
+      "bestDate": "November 10, 2026",
+      "levels": [
+        "Master's Degree"
+      ],
+      "forLabel": "Master's Degree",
+      "fields": [
+        "Engineering",
+        "Computer Science",
+        "Science",
+        "Business"
+      ],
+      "benefitsShort": "Full Tuition + Monthly Stipend",
+      "benefitsFull": "Covers full tuition fees for a TU Delft MSc programme and a living allowance contribution (€30,000 per year for non-EU/EEA students).",
+      "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+      "eligibility": [
+        "International applicants with an outstanding academic record (CGPA 80%+ or equivalent bachelor degree from a reputable university)",
+        "Admitted to one of the 2-year regular MSc programmes at TU Delft",
+        "High English proficiency (IELTS minimum overall 7.0 or TOEFL iBT minimum 100)"
+      ],
+      "docs": [
+        "Complete MSc online application at TU Delft",
+        "Scholarship essay (answering specific prompt on thesis vision and impact)",
+        "Two reference letters from academic professors",
+        "Official undergraduate academic transcripts and degree certificate",
+        "English language test certificate (IELTS/TOEFL)"
+      ],
+      "steps": [
+        "Submit a complete application for a TU Delft MSc programme before 1 December.",
+        "Upload the required scholarship essay and two reference letters during the online application process.",
+        "Pay the application fee and complete admission submission.",
+        "Shortlisted candidates will be notified of the outcome by March/April."
+      ],
+      "tip": "Focus heavily on the scholarship essay: articulate a clear, innovative vision for your intended research/thesis and connect it directly to solving real-world global engineering or society challenges.",
+      "link": "https://www.tudelft.nl/en/education/practical-matters/scholarships/justus-louise-van-effen-excellence-scholarships"
     }
   ]
 }
